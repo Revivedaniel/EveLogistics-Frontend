@@ -2,7 +2,7 @@ import GenericTasks from "../general/GenericTasks";
 
 const buttons = [
     {
-      to: "hauling/warehouse-transfers",
+      to: "warehouse-transfers",
       title: "Warehouse Transfers"
     },
     {

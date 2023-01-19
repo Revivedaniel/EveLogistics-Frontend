@@ -2,23 +2,23 @@ import GenericTasks from "../general/GenericTasks";
 
 const buttons = [
     {
-      to: "market/anomalies",
+      to: "anomalies",
       title: "Anomalies"
     },
     {
-      to: "market/forecast",
+      to: "forecast",
       title: "Forecast"
     },
     {
-      to: "market/sales-orders",
+      to: "sales-orders",
       title: "Sales Orders"
     },
     {
-      to: "market/purchase-orders",
+      to: "purchase-orders",
       title: "Purchase Orders"
     },
     {
-      to: "market/mrp",
+      to: "mrp",
       title: "MRP"
     },
   ];
