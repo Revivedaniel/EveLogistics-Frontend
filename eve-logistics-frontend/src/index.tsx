@@ -17,8 +17,8 @@ const buttons = [
     title: "Warehouse"
   },
   {
-    to: "marketing",
-    title: "Marketing"
+    to: "market",
+    title: "market"
   },
   {
     to: "industry",
