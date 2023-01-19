@@ -10,6 +10,13 @@ import Industry from "./industry/Industry";
 import Market from "./market/Market";
 import Hauling from "./hauling/Hauling";
 import GenericTasks from "./general/GenericTasks";
+import InventoryByItem from "./warehouse/InventoryByItem";
+import InventoryByLocation from "./warehouse/InventoryByLocation";
+import VelocityReport from "./warehouse/VelocityReport";
+import Picking from "./warehouse/Picking";
+import Receiving from "./warehouse/Receiving";
+import WarehouseTransfer from "./warehouse/WarehouseTransfer";
+import UpdateInventory from "./warehouse/UpdateInventory";
 
 const buttons = [
   {
@@ -42,7 +49,35 @@ const router = createBrowserRouter([
       },
       {
         path: "warehouse",
-        element: <Warehouse />,
+        element: <Warehouse />
+      },
+      {
+        path: "warehouse/inventory-by-item",
+        element: <InventoryByItem />
+      },
+      {
+        path: "warehouse/inventory-by-location",
+        element: <InventoryByLocation />
+      },
+      {
+        path: "warehouse/velocity-report",
+        element: <VelocityReport />
+      },
+      {
+        path: "warehouse/picking",
+        element: <Picking />
+      },
+      {
+        path: "warehouse/receiving",
+        element: <Receiving />
+      },
+      {
+        path: "warehouse/warehouse-transfer",
+        element: <WarehouseTransfer />
+      },
+      {
+        path: "warehouse/update-inventory",
+        element: <UpdateInventory />
       },
       {
         path: "industry",
