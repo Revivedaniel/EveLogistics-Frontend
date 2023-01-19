@@ -1,43 +1,48 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ErrorPage from './general/ErrorPage';
-import Warehouse from './warehouse/Warehouse';
-import Industry from './industry/Industry';
-import Market from './market/Market';
-import Hauling from './hauling/Hauling';
+import ErrorPage from "./general/ErrorPage";
+import Warehouse from "./warehouse/Warehouse";
+import Industry from "./industry/Industry";
+import Market from "./market/Market";
+import Hauling from "./hauling/Hauling";
+import SolutionSelect from "./general/SolutionSelect";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement:<ErrorPage />,
+    errorElement: <ErrorPage />,
     children: [
       {
+        path: "/",
+        element: <SolutionSelect />,
+      },
+      {
         path: "warehouse",
-        element: <Warehouse />
+        element: <Warehouse />,
       },
       {
         path: "industry",
-        element: <Industry />
+        element: <Industry />,
       },
       {
         path: "market",
-        element: <Market />
+        element: <Market />,
       },
       {
         path: "hauling",
-        element: <Hauling />
-      }
-    ]
-  }
-])
+        element: <Hauling />,
+      },
+    ],
+  },
+]);
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
