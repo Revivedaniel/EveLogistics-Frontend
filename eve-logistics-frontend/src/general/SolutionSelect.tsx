@@ -1,3 +1,12 @@
+import { Typography } from "@mui/material";
+import css from './SolutionSelect.module.css';
+
 export default function SolutionSelect() {
-    return <h2>This is the Solution Select Page</h2>
+  return (
+    <>
+      <Typography variant="h2" className={css.h2}>
+        Solution Select
+      </Typography>
+    </>
+  );
 }
