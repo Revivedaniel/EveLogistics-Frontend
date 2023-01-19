@@ -1,5 +1,16 @@
+import GenericTasks from "../general/GenericTasks";
+
+const buttons = [
+    {
+      to: "hauling/warehouse-transfers",
+      title: "Warehouse Transfers"
+    },
+    {
+      to: "hauling/mrp-transport",
+      title: "MRP Transport"
+    }
+  ];
+
 export default function Hauling() {
-    return <>
-        <h2>This is the Hauling Page</h2>
-    </>
+    return <GenericTasks heading="Hauling Tasks" buttons={buttons}/>
 }
