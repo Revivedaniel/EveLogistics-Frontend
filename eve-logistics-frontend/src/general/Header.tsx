@@ -11,7 +11,9 @@ export default function Header() {
         <Toolbar className={css.toolBar}>
           <Link to={`warehouse`} className={css.link}>Warehouse</Link>
           <Link to={`market`} className={css.link}>Market</Link>
-          <Link to={`/`} className={css.jumbotron}>Eve Logistics</Link>
+          <h1>
+            <Link to={`/`} className={css.jumbotron}>Eve Logistics</Link>
+          </h1>
           <Link to={`industry`} className={css.link}>Industry</Link>
           <Link to={`hauling`} className={css.link}>Hauling</Link>
         </Toolbar>
