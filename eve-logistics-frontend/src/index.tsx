@@ -3,13 +3,45 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ErrorPage from './general/ErrorPage';
+import Warehouse from './warehouse/Warehouse';
+import Industry from './industry/Industry';
+import Market from './market/Market';
+import Hauling from './hauling/Hauling';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement:<ErrorPage />,
+    children: [
+      {
+        path: "warehouse",
+        element: <Warehouse />
+      },
+      {
+        path: "industry",
+        element: <Industry />
+      },
+      {
+        path: "market",
+        element: <Market />
+      },
+      {
+        path: "hauling",
+        element: <Hauling />
+      }
+    ]
+  }
+])
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
