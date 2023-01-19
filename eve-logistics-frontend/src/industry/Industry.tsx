@@ -2,23 +2,23 @@ import GenericTasks from "../general/GenericTasks";
 
 const buttons = [
     {
-      to: "industry/current-jobs",
+      to: "current-jobs",
       title: "Current Jobs"
     },
     {
-      to: "industry/new-job",
+      to: "new-job",
       title: "New Job"
     },
     {
-      to: "industry/job-history",
+      to: "job-history",
       title: "Job History"
     },
     {
-      to: "industry/blueprints",
+      to: "blueprints",
       title: "Blueprints"
     },
     {
-      to: "industry/new-blueprint",
+      to: "new-blueprint",
       title: "New Blueprint"
     },
   ];

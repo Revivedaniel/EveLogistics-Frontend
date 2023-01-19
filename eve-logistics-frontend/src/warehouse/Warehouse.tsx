@@ -2,31 +2,31 @@ import GenericTasks from "../general/GenericTasks";
 
 const buttons = [
   {
-    to: "warehouse/inventory-by-item",
+    to: "inventory-by-item",
     title: "Inventory by Item"
   },
   {
-    to: "warehouse/inventory-by-location",
+    to: "inventory-by-location",
     title: "Inventory by Location"
   },
   {
-    to: "warehouse/velocity-report",
+    to: "velocity-report",
     title: "Velocity Report"
   },
   {
-    to: "warehouse/picking",
+    to: "picking",
     title: "Picking"
   },
   {
-    to: "warehouse/receiving",
+    to: "receiving",
     title: "Receiving"
   },
   {
-    to: "warehouse/warehouse-transfer",
+    to: "warehouse-transfer",
     title: "Warehouse Transfer"
   },
   {
-    to: "warehouse/update-inventory",
+    to: "update-inventory",
     title: "Update Inventory"
   },
 ];
