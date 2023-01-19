@@ -9,7 +9,26 @@ import Warehouse from "./warehouse/Warehouse";
 import Industry from "./industry/Industry";
 import Market from "./market/Market";
 import Hauling from "./hauling/Hauling";
-import SolutionSelect from "./general/SolutionSelect";
+import GenericTasks from "./general/GenericTasks";
+
+const buttons = [
+  {
+    to: "warehouse",
+    title: "Warehouse"
+  },
+  {
+    to: "marketing",
+    title: "Marketing"
+  },
+  {
+    to: "industry",
+    title: "Industry"
+  },
+  {
+    to: "hauling",
+    title: "Hauling"
+  },
+];
 
 const router = createBrowserRouter([
   {
@@ -19,7 +38,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <SolutionSelect />,
+        element: <GenericTasks heading="Solution Select" buttons={buttons} />,
       },
       {
         path: "warehouse",
