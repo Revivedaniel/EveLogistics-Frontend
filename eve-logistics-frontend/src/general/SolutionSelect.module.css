@@ -3,3 +3,25 @@
     margin-top: 25px;
     border-bottom: 2px black solid;
 }
+
+.solutions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+}
+
+.solutions div {
+    width: 30%;
+}
+
+.solutions div button {
+    font-size: x-large;
+}
+
+.link {
+    text-decoration: none;
+    color: #fff;
+    font-size: larger;
+    margin-right: 15px;
+}
