@@ -7,7 +7,7 @@ import css from './Header.module.css';
 export default function Header() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed">
+      <AppBar position="static">
         <Toolbar className={css.toolBar}>
           <Link to={`warehouse`} className={css.link}>Warehouse</Link>
           <Link to={`market`} className={css.link}>Market</Link>
