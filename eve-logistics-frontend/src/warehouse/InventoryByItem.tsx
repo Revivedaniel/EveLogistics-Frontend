@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import GenericTable from "./tables/GenericTable";
 import ItemInventory from './tables/ItemInventory';
 import { ItemInventoryRow, ItemTableRow } from './warehouse.model';
+import css from "./tables/ItemInventory.module.css";
+import GenericTasks from '../general/GenericTasks';
 
 // update references to this data when replacing with state
 const rows: ItemTableRow[] = [
@@ -44,7 +46,7 @@ export default function InventoryByItem() {
   });
 
     return <>
-        <h2>Inventory by Item</h2>
-        {selection ? <ItemInventory rows={itemRows} setSelection={setSelection} itemName={rows[selection[0]].itemName} /> : <GenericTable rows={rows} columns={columns} setSelection={setSelection} />}
+        <GenericTasks heading="Inventory by Item"/>
+        {selection ? <ItemInventory rows={itemRows} setSelection={setSelection} itemName={rows[selection[0]].itemName} /> : <div className={css.container}><GenericTable rows={rows} columns={columns} setSelection={setSelection} /></div>}
     </>
 }
