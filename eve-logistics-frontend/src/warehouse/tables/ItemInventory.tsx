@@ -1,7 +1,8 @@
 import GenericTable from "./GenericTable";
 import { GridColDef } from '@mui/x-data-grid';
 import { ItemInventoryRow } from "../warehouse.model";
-import { Button } from "@mui/material";
+import { Button, Paper } from "@mui/material";
+import css from "./ItemInventory.module.css";
 
 // TODO: Make the itemName be displayed to the top right side of the table.
 // TODO: Make Item Select button update the selection state to undefined.
@@ -24,11 +25,15 @@ export default function ItemInventory(props: ItemInventoryProps) {
     } else if (props.rows.length === 0) {
         return <h2>There is no inventory for this Item.</h2>
     } else {
-        return <>
-            <Button variant="contained">Item Select</Button>
-            <Button variant="contained">{props.itemName}</Button>
+        return (
+          <div className={css.container}>
+            <div className={css.aboveTable}>
+              <Button variant="contained">Item Select</Button>
+              <Paper elevation={1} className={css.paper} >{props.itemName}</Paper>
+            </div>
             <GenericTable rows={props.rows} columns={itemcolumns} />
-        </>
+          </div>
+        );
     }
 
 }
