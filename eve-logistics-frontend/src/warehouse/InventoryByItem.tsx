@@ -1,18 +1,16 @@
-import { GridRowsProp, GridColDef } from '@mui/x-data-grid';
+import { GridColDef } from '@mui/x-data-grid';
 import { useState, useEffect } from 'react';
 import GenericTable from "./tables/GenericTable";
 import ItemInventory from './tables/ItemInventory';
-import { ItemInventoryRow } from './warehouse.model';
-
-// TODO: Make column and row data more specific interfaces.
+import { ItemInventoryRow, ItemTableRow } from './warehouse.model';
 
 // update references to this data when replacing with state
-const rows: GridRowsProp = [
-    { id: 0, itemNumber: '34', itemName: 'Tritanium', totalQty: "1216", reservedQty: "500", activeQty: "716" },
-    { id: 1, itemNumber: '36', itemName: 'Mexallon', totalQty: "573", reservedQty: "0", activeQty: "573" },
-    { id: 2, itemNumber: '37', itemName: 'Isogen', totalQty: "4", reservedQty: "1", activeQty: "3" },
-    { id: 3, itemNumber: '39', itemName: 'Zydrine', totalQty: "13", reservedQty: "10", activeQty: "3" },
-    { id: 4, itemNumber: '40', itemName: 'Megacyte', totalQty: "4", reservedQty: "0", activeQty: "4" },
+const rows: ItemTableRow[] = [
+    { id: 0, itemNumber: 34, itemName: 'Tritanium', totalQty: 1216, reservedQty: 500, activeQty: 716 },
+    { id: 1, itemNumber: 36, itemName: 'Mexallon', totalQty: 573, reservedQty: 0, activeQty: 573 },
+    { id: 2, itemNumber: 37, itemName: 'Isogen', totalQty: 4, reservedQty: 1, activeQty: 3 },
+    { id: 3, itemNumber: 39, itemName: 'Zydrine', totalQty: 13, reservedQty: 10, activeQty: 3 },
+    { id: 4, itemNumber: 40, itemName: 'Megacyte', totalQty: 4, reservedQty: 0, activeQty: 4 },
   ];
   
   const columns: GridColDef[] = [
