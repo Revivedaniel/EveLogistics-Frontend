@@ -4,10 +4,7 @@ import { ItemInventoryRow } from "../warehouse.model";
 import { Button, Paper } from "@mui/material";
 import css from "./ItemInventory.module.css";
 
-// TODO: Make the itemName be displayed to the top right side of the table.
-// TODO: Make Item Select button update the selection state to undefined.
 // TODO: Update loading to a progress or loading component.
-
 
 const itemcolumns: GridColDef[] = [
     { field: 'region', headerName: 'Region', width: 150 },
@@ -20,6 +17,12 @@ const itemcolumns: GridColDef[] = [
 
 export default function ItemInventory(props: ItemInventoryProps) {
 
+    const handleButtonClick = () => {
+        if (props.setSelection) {
+            props.setSelection(undefined);
+        }
+    }
+
     if (!props.rows) {
         return <h2>Loading...</h2>
     } else if (props.rows.length === 0) {
@@ -28,7 +31,7 @@ export default function ItemInventory(props: ItemInventoryProps) {
         return (
           <div className={css.container}>
             <div className={css.aboveTable}>
-              <Button variant="contained">Item Select</Button>
+              <Button variant="contained" onClick={handleButtonClick}>Item Select</Button>
               <Paper elevation={1} className={css.paper} >{props.itemName}</Paper>
             </div>
             <GenericTable rows={props.rows} columns={itemcolumns} />
