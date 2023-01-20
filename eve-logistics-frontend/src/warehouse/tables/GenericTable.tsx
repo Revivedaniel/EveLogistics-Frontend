@@ -9,6 +9,12 @@ export default function GenericTable(props: GenericTableProps) {
           props.setSelection(newSelectionModel);
         }
       }}
+      initialState={{
+        pagination: {
+          pageSize: 30,
+        },
+      }}
+      rowsPerPageOptions={[30, 50, 100]}
       />
     </div>
     </>
