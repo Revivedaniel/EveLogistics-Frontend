@@ -24,3 +24,26 @@
     font-size: larger;
     margin-right: 15px;
 }
+
+.extraButton {
+    margin-bottom: 10px;
+}
+
+.selectionList {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.selectionList button {
+    width: 30%;
+}
+
+.selectionList div {
+    width: 1300px;
+}
+
+.selectionList div button {
+    width: 250px;
+    margin: 4px;
+}

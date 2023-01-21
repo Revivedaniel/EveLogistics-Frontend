@@ -60,8 +60,24 @@ export default function InventoryByItem() {
     return () => clearTimeout(timer);
   });
 
-    return <>
-        <GenericTasks heading="Inventory by Item"/>
-        {selection ? <ItemInventory rows={itemRows} setSelection={setSelection} itemName={rows[selection[0]].itemName} /> : <div className={css.container}><GenericTable rows={rows} columns={columns} setSelection={setSelection} /></div>}
-    </>
+    return (
+      <>
+        <GenericTasks heading="Inventory by Item" />
+        {selection ? (
+          <ItemInventory
+            rows={itemRows}
+            setSelection={setSelection}
+            itemName={rows[selection[0]].itemName}
+          />
+        ) : (
+          <div className={css.container}>
+            <GenericTable
+              rows={rows}
+              columns={columns}
+              setSelection={setSelection}
+            />
+          </div>
+        )}
+      </>
+    );
 }
