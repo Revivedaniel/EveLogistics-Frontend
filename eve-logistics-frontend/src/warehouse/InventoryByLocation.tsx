@@ -1,14 +1,16 @@
 import RegionSelect from "../general/RegionSelect";
 import { useState } from 'react';
-import { region } from "../general/General.model";
+import { Region, System } from "../general/General.model";
+import SystemSelect from "../general/SystemSelect";
 
 export default function InventoryByLocation() {
 
-  const [region, setRegion] = useState<region | undefined>(undefined);
+  const [region, setRegion] = useState<Region | undefined>(undefined);
+  const [system, setSystem] = useState<System | undefined>(undefined);
 
   return (
     <>
-      {region ? <h2>System Select: {region.name}</h2> : <RegionSelect setRegion={setRegion} />}
+      {!region ? <RegionSelect setRegion={setRegion} /> : !system ? <SystemSelect region={region} setSystem={setSystem} /> : <h2>{system.name}</h2>}
     </>
   );
 }
