@@ -1,4 +1,9 @@
-export interface region {
-    id: number;
-    name: string;
-  }
+export interface Region {
+  id: number;
+  name: string;
+}
+
+export interface System {
+  id: number;
+  name: string;
+}
