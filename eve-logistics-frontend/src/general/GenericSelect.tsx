@@ -3,8 +3,11 @@ import css from "./GenericTasks.module.css";
 
 export default function GenericSelect(props: RegionSelectProps) {
   const handleSelection = (e: any) => {
-    props.setSelection(props.selections[e.target.dataset.selection]);
-  }
+    if (props.selections) {
+      props.setSelection(props.selections[e.target.dataset.selection]);
+    }
+  };
+
   return (
     <>
       <Typography
@@ -22,7 +25,7 @@ export default function GenericSelect(props: RegionSelectProps) {
         </Button>
       ) : null}
 
-        <div>
+        {props.selections ? <div>
           {props.selections.map((selection, i) => (
             <Button
               key={selection.id}
@@ -33,7 +36,7 @@ export default function GenericSelect(props: RegionSelectProps) {
               {selection.name}
             </Button>
           ))}
-        </div>
+        </div> : <h2>Loading...</h2>}
       </div>
     </>
   );
@@ -50,7 +53,7 @@ interface ExtraButton {
 
 interface RegionSelectProps {
   title: string;
-  selections: GenericSelection[];
+  selections?: GenericSelection[];
   extraButton?: ExtraButton;
   setSelection: Function;
 }
