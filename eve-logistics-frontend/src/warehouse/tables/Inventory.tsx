@@ -1,6 +1,5 @@
 import GenericTable from "./GenericTable";
-import { GridColDef } from '@mui/x-data-grid';
-import { ItemInventoryRow } from "../warehouse.model";
+import { GridColDef, GridRowsProp } from '@mui/x-data-grid';
 import { Button, Paper, Skeleton } from "@mui/material";
 import css from "./ItemInventory.module.css";
 
@@ -10,10 +9,10 @@ const itemcolumns: GridColDef[] = [
     { field: 'station', headerName: 'Station', width: 450 },
     { field: 'totalQty', headerName: 'Total Qty', width: 150 },
     { field: 'reservedQty', headerName: 'Reserved', width: 150 },
-    { field: 'activeQty', headerName: 'Active', width: 150 },
+    { field: 'availableQty', headerName: 'Available', width: 150 },
   ];
 
-export default function ItemInventory(props: ItemInventoryProps) {
+export default function Inventory(props: InventoryProps) {
 
     const handleButtonClick = () => {
         if (props.setSelection) {
@@ -38,8 +37,8 @@ export default function ItemInventory(props: ItemInventoryProps) {
         return (
           <div className={css.container}>
             <div className={css.aboveTable}>
-              <Button variant="contained" onClick={handleButtonClick}>Item Select</Button>
-              <Paper elevation={1} className={css.paper} >{props.itemName}</Paper>
+              <Button variant="contained" onClick={handleButtonClick}>{props.backButtonTitle}</Button>
+              <Paper elevation={1} className={css.paper} >{props.tableTitle}</Paper>
             </div>
             <GenericTable rows={props.rows} columns={itemcolumns} />
           </div>
@@ -48,8 +47,9 @@ export default function ItemInventory(props: ItemInventoryProps) {
 
 }
 
-interface ItemInventoryProps {
-    rows?: ItemInventoryRow[];
-    setSelection?: Function;
-    itemName: string;
+interface InventoryProps {
+  rows?: GridRowsProp;
+  setSelection?: Function;
+  tableTitle: string;
+  backButtonTitle: string;
 }
