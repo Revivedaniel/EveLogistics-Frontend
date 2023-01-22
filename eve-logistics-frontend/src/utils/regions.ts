@@ -1,6 +1,6 @@
-import { region } from "../general/General.model";
+import { Region } from "../general/General.model";
 
-const regions: region[] = [
+const regions: Region[] = [
   {
     id: 0,
     name: "Aridia",
