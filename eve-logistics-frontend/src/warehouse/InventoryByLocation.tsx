@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { Region, Station, System } from "../general/General.model";
 import SystemSelect from "../general/SystemSelect";
 import StationSelect from "../general/StationSelect";
+import GenericTasks from "../general/GenericTasks";
+import StationInventory from "./tables/StationInventory";
 
 export default function InventoryByLocation() {
 
@@ -12,10 +14,11 @@ export default function InventoryByLocation() {
 
   return (
     <>
+      <GenericTasks heading="Inventory by Location" />
       {!region ? <RegionSelect setRegion={setRegion} /> : 
       !system ? <SystemSelect region={region} setSystem={setSystem} /> : 
       !station ? <StationSelect system={system} setStation={setStation} /> : 
-      <h2>{station.name}</h2>}
+      <StationInventory station={station} setStation={setStation} />}
     </>
   );
 }
