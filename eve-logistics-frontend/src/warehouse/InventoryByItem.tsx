@@ -54,10 +54,12 @@ export default function InventoryByItem() {
     const [itemRows, setItemRows] = useState<ItemInventoryRow[] | undefined>(undefined);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setItemRows(itemrows);
-    }, 2500)
-    return () => clearTimeout(timer);
+    if(selection) {
+      const timer = setTimeout(() => {
+        setItemRows(itemrows);
+      }, 2500)
+      return () => clearTimeout(timer);
+    }
   });
 
     return (
