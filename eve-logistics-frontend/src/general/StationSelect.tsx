@@ -17,11 +17,12 @@ export default function StationSelect(props: StationSelectProps) {
       });
 
     return <>
-        <GenericSelect title="Station" selections={stations} extraButton={{title: `${props.system.name} Inventory`}} setSelection={props.setStation} />
+        <GenericSelect title="Station" selections={stations} extraButton={{title: `${props.system.name} Inventory`}} setSelection={props.setStation} setExtraButtonClicked={props.setSystemInventory} />
     </>
 }
 
 interface StationSelectProps {
     system: System;
     setStation: Function;
+    setSystemInventory?: Function;
 }
