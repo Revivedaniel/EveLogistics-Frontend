@@ -5,7 +5,7 @@ export interface ItemInventoryRow {
     station: string;
     totalQty: number;
     reservedQty: number;
-    activeQty: number;
+    availableQty: number;
 }
 
 export interface ItemTableRow {
@@ -14,5 +14,16 @@ export interface ItemTableRow {
     itemName: string;
     totalQty: number;
     reservedQty: number;
-    activeQty: number;
+    availableQty: number;
+}
+
+export interface StationInventoryRow {
+    id: number;
+    region: string;
+    system: string;
+    station: string;
+    itemName: string;
+    totalQty: number;
+    reservedQty: number;
+    availableQty: number;
 }

@@ -24,3 +24,28 @@
     font-size: larger;
     margin-right: 15px;
 }
+
+.extraButton {
+    margin-bottom: 10px;
+}
+
+.additionalButtons {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+
+.selectionList {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.selectionList div {
+    width: 1300px;
+}
+
+.selectionList div button {
+    width: 250px;
+    margin: 4px;
+}
