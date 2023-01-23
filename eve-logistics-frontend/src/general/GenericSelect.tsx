@@ -32,27 +32,43 @@ export default function GenericSelect(props: RegionSelectProps) {
       </Typography>
 
       <div className={css.selectionList}>
-        {props.backButtonTitle ? (<Button variant="contained" className={css.extraButton} onClick={handleRegionSelect} >
-          {props.backButtonTitle}
-        </Button>) : null}
-      {props.extraButton ? (
-        <Button variant="contained" className={css.extraButton} onClick={handleExtraButton} >
-          {props.extraButton.title}
-        </Button>
-      ) : null}
-
-        {props.selections ? <div>
-          {props.selections.map((selection, i) => (
+        <div className={css.additionalButtons}>
+          {props.extraButton ? (
             <Button
-              key={selection.id}
-              onClick={handleSelection}
-              data-selection={i}
               variant="contained"
+              onClick={handleExtraButton}
+              style={{ width: "30%" }}
             >
-              {selection.name}
+              {props.extraButton.title}
             </Button>
-          ))}
-        </div> : <h2>Loading...</h2>}
+          ) : null}
+          {props.backButtonTitle ? (
+            <Button
+              variant="contained"
+              onClick={handleRegionSelect}
+              style={{ width: "30%" }}
+            >
+              {props.backButtonTitle}
+            </Button>
+          ) : null}
+        </div>
+
+        {props.selections ? (
+          <div>
+            {props.selections.map((selection, i) => (
+              <Button
+                key={selection.id}
+                onClick={handleSelection}
+                data-selection={i}
+                variant="contained"
+              >
+                {selection.name}
+              </Button>
+            ))}
+          </div>
+        ) : (
+          <h2>Loading...</h2>
+        )}
       </div>
     </>
   );

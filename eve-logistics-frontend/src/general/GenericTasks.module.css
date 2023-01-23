@@ -29,14 +29,16 @@
     margin-bottom: 10px;
 }
 
+.additionalButtons {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+
 .selectionList {
     display: flex;
     align-items: center;
     flex-direction: column;
-}
-
-.selectionList button {
-    width: 30%;
 }
 
 .selectionList div {
