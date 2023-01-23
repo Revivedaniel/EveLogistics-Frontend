@@ -24,8 +24,8 @@ export default function Inventory(props: InventoryProps) {
         return (
             <div className={css.container}>
               <div className={css.aboveTable}>
-                <Button variant="contained" onClick={handleButtonClick}>Item Select</Button>
-                <Paper elevation={1} className={css.paper} ><Skeleton /></Paper>
+                <Button variant="contained" onClick={handleButtonClick}>{props.backButtonTitle}</Button>
+                <Paper elevation={1} className={css.paper} >{props.tableTitle}</Paper>
               </div>
               <Skeleton variant="rectangular" width={1200} height={500}>
               </Skeleton>
