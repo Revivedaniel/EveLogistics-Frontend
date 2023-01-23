@@ -24,13 +24,16 @@ const buttons = [
   {
     to: "warehouse-transfer",
     title: "Warehouse Transfer"
-  },
+  }
+];
+
+const specialButtons = [
   {
     to: "update-inventory",
     title: "Update Inventory"
-  },
-];
+  }
+]
 
 export default function Warehouse() {
-    return <GenericTasks heading="Warehouse Tasks" buttons={buttons}/>
+    return <GenericTasks heading="Warehouse Tasks" buttons={buttons} specialButtons={specialButtons} />
 }

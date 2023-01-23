@@ -3,6 +3,7 @@ import { Box } from "@mui/system";
 import { Link } from "react-router-dom";
 import css from './GenericTasks.module.css';
 
+// TODO: Continue to make the special buttons behavior more dynamic
 
 export default function GenericTasks(props: genericTasksProps) {
   return (
@@ -17,6 +18,8 @@ export default function GenericTasks(props: genericTasksProps) {
         variant="contained"
       >
         {props.buttons.map((button, i) => <Button key={i}><Link to={`${button.to}`} className={css.link}>{button.title}</Link></Button>)}
+        {!props.specialButtons ? null : 
+        props.specialButtons.map((button, i) => <Button key={i}>{button.title}</Button>)}
       </ButtonGroup>
     </Box>: null}
     </>
@@ -31,4 +34,5 @@ interface button {
 interface genericTasksProps {
   heading: string;
   buttons?: button[];
+  specialButtons?: button[];
 }
