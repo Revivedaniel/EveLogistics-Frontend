@@ -7,6 +7,7 @@ import GenericTasks from "../general/GenericTasks";
 import StationInventory from "./tables/StationInventory";
 import SystemInventory from "./tables/SystemInventory";
 import RegionInventory from "./tables/RegionInventory";
+import UniverseInventory from "./tables/UniverseInventory";
 
 export default function InventoryByLocation() {
 
@@ -15,6 +16,7 @@ export default function InventoryByLocation() {
   const [station, setStation] = useState<Station | undefined>(undefined);
   const [systemInventory, setSystemInventory] = useState<boolean>(false);
   const [regionInventory, setRegionInventory] = useState<boolean>(false);
+  const [universeInventory, setUniverseInventory] = useState<boolean>(false);
 
   if (system && systemInventory) {
     return <>
@@ -26,11 +28,16 @@ export default function InventoryByLocation() {
       <GenericTasks heading="Inventory by Location" />
       <RegionInventory region={region} setRegionInventory={setRegionInventory} />
     </>
+    } else if (universeInventory) {
+      return <>
+        <GenericTasks heading="Inventory by Location" />
+        <UniverseInventory setUniverseInventory={setUniverseInventory} />
+      </>
   } else {
     return (
       <>
         <GenericTasks heading="Inventory by Location" />
-        {!region ? <RegionSelect setRegion={setRegion} /> : 
+        {!region ? <RegionSelect setRegion={setRegion} setUniverseInventory={setUniverseInventory} /> : 
         !system ? <SystemSelect region={region} setSystem={setSystem} setRegionInventory={setRegionInventory} /> : 
         !station ? <StationSelect system={system} setStation={setStation} setSystemInventory={setSystemInventory}/> : 
         <StationInventory station={station} setStation={setStation} />}
