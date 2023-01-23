@@ -17,7 +17,7 @@ export default function StationSelect(props: StationSelectProps) {
       });
 
     return <>
-        <GenericSelect title="Station" selections={stations} extraButton={{title: `${props.system.name} Inventory`}} setSelection={props.setStation} setExtraButtonClicked={props.setSystemInventory} />
+        <GenericSelect title="Station" selections={stations} extraButton={{title: `${props.system.name} Inventory`}} setSelection={props.setStation} setExtraButtonClicked={props.setSystemInventory} backButtonTitle="System Select" setBackButton={props.setSystem} />
     </>
 }
 
@@ -25,4 +25,5 @@ interface StationSelectProps {
     system: System;
     setStation: Function;
     setSystemInventory?: Function;
+    setSystem: Function;
 }
