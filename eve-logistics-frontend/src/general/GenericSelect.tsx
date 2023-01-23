@@ -2,6 +2,13 @@ import { Button, Typography } from "@mui/material";
 import css from "./GenericTasks.module.css";
 
 export default function GenericSelect(props: RegionSelectProps) {
+
+  const handleExtraButton = (e: any) => {
+    if (props.setExtraButtonClicked) {
+      props.setExtraButtonClicked(true);
+    }
+  };
+
   const handleSelection = (e: any) => {
     if (props.selections) {
       props.setSelection(props.selections[e.target.dataset.selection]);
@@ -20,7 +27,7 @@ export default function GenericSelect(props: RegionSelectProps) {
 
       <div className={css.selectionList}>
       {props.extraButton ? (
-        <Button variant="contained" className={css.extraButton}>
+        <Button variant="contained" className={css.extraButton} onClick={handleExtraButton} >
           {props.extraButton.title}
         </Button>
       ) : null}
@@ -56,4 +63,5 @@ interface RegionSelectProps {
   selections?: GenericSelection[];
   extraButton?: ExtraButton;
   setSelection: Function;
+  setExtraButtonClicked?: Function;
 }
