@@ -3,17 +3,19 @@ import { GridColDef, GridRowsProp } from '@mui/x-data-grid';
 import { Button, Paper, Skeleton } from "@mui/material";
 import css from "./ItemInventory.module.css";
 
-const itemcolumns: GridColDef[] = [
-    { field: 'region', headerName: 'Region', width: 150 },
-    { field: 'system', headerName: 'System', width: 150 },
-    { field: 'station', headerName: 'Station', width: 450 },
-    { field: 'totalQty', headerName: 'Total Qty', width: 150 },
-    { field: 'reservedQty', headerName: 'Reserved', width: 150 },
-    { field: 'availableQty', headerName: 'Available', width: 150 },
-  ];
 
 export default function Inventory(props: InventoryProps) {
-
+  
+  const itemcolumns: GridColDef[] = [
+      { field: 'region', headerName: 'Region', width: 150 },
+      { field: 'system', headerName: 'System', width: 150 },
+      { field: 'station', headerName: 'Station', width: 450 },
+      { field: 'itemName', headerName: 'ITem Name', width: 150 },
+      { field: 'totalQty', headerName: 'Total Qty', width: 150 },
+      { field: 'reservedQty', headerName: 'Reserved', width: 150 },
+      { field: 'availableQty', headerName: 'Available', width: 150 },
+    ];
+    
     const handleButtonClick = () => {
         if (props.setSelection) {
             props.setSelection(undefined);
@@ -27,7 +29,7 @@ export default function Inventory(props: InventoryProps) {
                 <Button variant="contained" onClick={handleButtonClick}>{props.backButtonTitle}</Button>
                 <Paper elevation={1} className={css.paper} >{props.tableTitle}</Paper>
               </div>
-              <Skeleton variant="rectangular" width={1200} height={500}>
+              <Skeleton variant="rectangular" width={1350} height={500}>
               </Skeleton>
             </div>
           );
@@ -40,7 +42,7 @@ export default function Inventory(props: InventoryProps) {
               <Button variant="contained" onClick={handleButtonClick}>{props.backButtonTitle}</Button>
               <Paper elevation={1} className={css.paper} >{props.tableTitle}</Paper>
             </div>
-            <GenericTable rows={props.rows} columns={itemcolumns} />
+            <GenericTable rows={props.rows} columns={props.columns ? props.columns : itemcolumns} />
           </div>
         );
     }
@@ -48,6 +50,7 @@ export default function Inventory(props: InventoryProps) {
 }
 
 interface InventoryProps {
+  columns?: GridColDef[];
   rows?: GridRowsProp;
   setSelection?: Function;
   tableTitle: string;

@@ -45,6 +45,15 @@ const rows: ItemTableRow[] = [
     { id: 3, region: 'Kor-Azor', system: 'Amdonen', station: "Amdonen VII - Moon 7 - Imperial Shipment Storage", totalQty: 13, reservedQty: 10, availableQty: 3 },
     { id: 4, region: 'Kor-Azor', system: 'Amdonen', station: "Amdonen VII - Moon 7 - Imperial Shipment Storage", totalQty: 4, reservedQty: 0, availableQty: 4 },
   ];
+
+  const inventoryItems: GridColDef[] = [
+    { field: 'region', headerName: 'Region', width: 150 },
+      { field: 'system', headerName: 'System', width: 150 },
+      { field: 'station', headerName: 'Station', width: 450 },
+      { field: 'totalQty', headerName: 'Total Qty', width: 150 },
+      { field: 'reservedQty', headerName: 'Reserved', width: 150 },
+      { field: 'availableQty', headerName: 'Available', width: 150 },
+  ]
   
   
 
@@ -71,6 +80,7 @@ export default function InventoryByItem() {
             setSelection={setSelection}
             tableTitle={rows[selection[0]].itemName}
             backButtonTitle="Item Select"
+            columns={inventoryItems}
           />
         ) : (
           <div className={css.container}>
