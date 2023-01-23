@@ -17,12 +17,13 @@ export default function SystemSelect(props: SystemSelectProps) {
       });
       
     return <>
-        <GenericSelect title="System" selections={systems} extraButton={{title: `${props.region.name} Inventory`}} setSelection={props.setSystem} setExtraButtonClicked={props.setRegionInventory} />
+        <GenericSelect title="System" selections={systems} extraButton={{title: `${props.region.name} Inventory`}} setSelection={props.setSystem} setExtraButtonClicked={props.setRegionInventory} backButtonTitle="Region Select" setBackButton={props.setRegion} />
     </>
 }
 
 interface SystemSelectProps {
     region: Region;
     setSystem: Function;
-    setRegionInventory?: Function
+    setRegionInventory?: Function;
+    setRegion: Function;
 }
