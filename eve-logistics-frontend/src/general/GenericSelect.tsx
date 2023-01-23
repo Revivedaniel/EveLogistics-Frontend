@@ -15,6 +15,12 @@ export default function GenericSelect(props: RegionSelectProps) {
     }
   };
 
+  const handleRegionSelect = (e: any) => {
+    if (props.setBackButton) {
+      props.setBackButton(undefined);
+    } 
+  }
+
   return (
     <>
       <Typography
@@ -26,6 +32,9 @@ export default function GenericSelect(props: RegionSelectProps) {
       </Typography>
 
       <div className={css.selectionList}>
+        {props.backButtonTitle ? (<Button variant="contained" className={css.extraButton} onClick={handleRegionSelect} >
+          Region Select
+        </Button>) : null}
       {props.extraButton ? (
         <Button variant="contained" className={css.extraButton} onClick={handleExtraButton} >
           {props.extraButton.title}
@@ -64,4 +73,6 @@ interface RegionSelectProps {
   extraButton?: ExtraButton;
   setSelection: Function;
   setExtraButtonClicked?: Function;
+  backButtonTitle?: string;
+  setBackButton?: Function;
 }
