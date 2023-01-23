@@ -33,7 +33,7 @@ export default function GenericSelect(props: RegionSelectProps) {
 
       <div className={css.selectionList}>
         {props.backButtonTitle ? (<Button variant="contained" className={css.extraButton} onClick={handleRegionSelect} >
-          Region Select
+          {props.backButtonTitle}
         </Button>) : null}
       {props.extraButton ? (
         <Button variant="contained" className={css.extraButton} onClick={handleExtraButton} >
