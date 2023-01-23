@@ -2,6 +2,7 @@ import { Station } from "../../general/General.model";
 import { StationInventoryRow } from "../warehouse.model";
 import Inventory from "./Inventory";
 import css from "./ItemInventory.module.css";
+import { useState, useEffect } from 'react';
   
   const rows: StationInventoryRow[] = [
     {
@@ -47,7 +48,17 @@ import css from "./ItemInventory.module.css";
   ]
 
 export default function StationInventory(props: StationInventoryProps) {
-    return <div className={css.container} ><Inventory rows={rows} tableTitle={props.station.name} backButtonTitle="Station Select" setSelection={props.setStation} /></div>
+
+  const [stationInventory, setStationInventory] = useState<StationInventoryRow[] | undefined>(undefined);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setStationInventory(rows);
+    }, 2500)
+    return () => clearTimeout(timer);
+  });
+
+    return <div className={css.container} ><Inventory rows={stationInventory} tableTitle={props.station.name} backButtonTitle="Station Select" setSelection={props.setStation} /></div>
 }
 
 interface StationInventoryProps {
