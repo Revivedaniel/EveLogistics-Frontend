@@ -17,8 +17,10 @@ export default function Inventory(props: InventoryProps) {
     ];
     
     const handleButtonClick = () => {
-        if (props.setSelection) {
-            props.setSelection(undefined);
+        if (props.setSelection && props.buttonClickValue) {
+            props.setSelection(props.buttonClickValue);
+        } else if (props.setSelection) {
+          props.setSelection(undefined);
         }
     }
 
@@ -55,4 +57,5 @@ interface InventoryProps {
   setSelection?: Function;
   tableTitle: string;
   backButtonTitle: string;
+  buttonClickValue?: any;
 }
