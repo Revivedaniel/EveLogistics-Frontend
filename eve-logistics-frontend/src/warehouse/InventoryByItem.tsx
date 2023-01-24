@@ -32,7 +32,7 @@ const rows: ItemTableRow[] = [
   
   const columns: GridColDef[] = [
     { field: 'itemNumber', headerName: 'Item Number', width: 150 },
-    { field: 'itemName', headerName: 'Item Name', width: 150 },
+    { field: 'itemName', headerName: 'Item Name', width: 750 },
     { field: 'totalQty', headerName: 'Total Qty', width: 150 },
     { field: 'reservedQty', headerName: 'Reserved', width: 150 },
     { field: 'availableQty', headerName: 'Active', width: 150 },
@@ -49,7 +49,7 @@ const rows: ItemTableRow[] = [
   const inventoryItems: GridColDef[] = [
     { field: 'region', headerName: 'Region', width: 150 },
       { field: 'system', headerName: 'System', width: 150 },
-      { field: 'station', headerName: 'Station', width: 450 },
+      { field: 'station', headerName: 'Station', width: 600 },
       { field: 'totalQty', headerName: 'Total Qty', width: 150 },
       { field: 'reservedQty', headerName: 'Reserved', width: 150 },
       { field: 'availableQty', headerName: 'Available', width: 150 },
