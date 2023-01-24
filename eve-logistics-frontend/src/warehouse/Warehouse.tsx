@@ -11,22 +11,22 @@ const buttons = [
     to: "inventory-by-location",
     title: "Inventory by Location"
   },
-  {
-    to: "velocity-report",
-    title: "Velocity Report"
-  },
-  {
-    to: "picking",
-    title: "Picking"
-  },
-  {
-    to: "receiving",
-    title: "Receiving"
-  },
-  {
-    to: "warehouse-transfer",
-    title: "Warehouse Transfer"
-  }
+  // {
+  //   to: "velocity-report",
+  //   title: "Velocity Report"
+  // },
+  // {
+  //   to: "picking",
+  //   title: "Picking"
+  // },
+  // {
+  //   to: "receiving",
+  //   title: "Receiving"
+  // },
+  // {
+  //   to: "warehouse-transfer",
+  //   title: "Warehouse Transfer"
+  // }
 ];
 
 
