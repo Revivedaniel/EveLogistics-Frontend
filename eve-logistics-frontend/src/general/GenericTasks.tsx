@@ -3,8 +3,16 @@ import { Box } from "@mui/system";
 import { Link } from "react-router-dom";
 import css from './GenericTasks.module.css';
 
+// TODO: Continue to make the special buttons behavior more dynamic
 
 export default function GenericTasks(props: genericTasksProps) {
+
+  const handleSpecialButtonClick = (e: any) => {
+    if (props.specialButtonSelected) {
+      props.specialButtonSelected(true);
+    }
+  }
+
   return (
     <>
       <Typography variant="h2" className={css.h2} style={{marginTop: "25px", marginBottom: "10px"}}>
@@ -17,6 +25,8 @@ export default function GenericTasks(props: genericTasksProps) {
         variant="contained"
       >
         {props.buttons.map((button, i) => <Button key={i}><Link to={`${button.to}`} className={css.link}>{button.title}</Link></Button>)}
+        {!props.specialButtonTitle ? null : 
+        <Button onClick={handleSpecialButtonClick} >{props.specialButtonTitle}</Button>}
       </ButtonGroup>
     </Box>: null}
     </>
@@ -31,4 +41,6 @@ interface button {
 interface genericTasksProps {
   heading: string;
   buttons?: button[];
+  specialButtonTitle?: string;
+  specialButtonSelected?: Function;
 }
