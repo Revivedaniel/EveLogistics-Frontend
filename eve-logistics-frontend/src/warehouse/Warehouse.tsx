@@ -1,3 +1,5 @@
+import { Backdrop } from "@mui/material";
+import { useState } from "react";
 import GenericTasks from "../general/GenericTasks";
 
 const buttons = [
@@ -27,13 +29,27 @@ const buttons = [
   }
 ];
 
-const specialButtons = [
-  {
-    to: "update-inventory",
-    title: "Update Inventory"
-  }
-]
 
 export default function Warehouse() {
-    return <GenericTasks heading="Warehouse Tasks" buttons={buttons} specialButtons={specialButtons} />
+
+  const [updateInventory, setUpdateInventory] = useState<boolean>(false);
+  const handleClose = () => {
+    setUpdateInventory(false);
+  };
+
+    return (
+      <>
+        <Backdrop
+          sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+          open={updateInventory}
+          onClick={handleClose}
+        >Updating Inventory...</Backdrop>
+        <GenericTasks
+          heading="Warehouse Tasks"
+          buttons={buttons}
+          specialButtonTitle="Update Inventory"
+          specialButtonSelected={setUpdateInventory}
+        />
+      </>
+    );
 }
