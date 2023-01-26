@@ -1,5 +1,5 @@
 import { Skeleton } from '@mui/material';
-import { DataGrid, GridRowsProp, GridColDef } from '@mui/x-data-grid';
+import { DataGrid, GridRowsProp, GridColDef, GridRowId, GridValidRowModel } from '@mui/x-data-grid';
 
 export default function GenericTable(props: GenericTableProps) {
     if (!props.rows) {
@@ -14,9 +14,10 @@ export default function GenericTable(props: GenericTableProps) {
       return <>
     <div style={{ height: 500, width: '100%' }}>
       <DataGrid rows={props.rows} columns={props.columns} 
-      onSelectionModelChange={(newSelectionModel) => {
+      onSelectionModelChange={(newSelectionModel: GridRowId[]) => {
         if(props.setSelection) {
-          props.setSelection(newSelectionModel);
+          const data: GridValidRowModel =  props.rows ? props.rows[newSelectionModel[0] as number] : {error: "There was an error retrieving the selection"}
+          props.setSelection({index: newSelectionModel[0], data });
         }
       }}
       initialState={{

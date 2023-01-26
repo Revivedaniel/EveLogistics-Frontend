@@ -27,3 +27,8 @@ export interface StationInventoryRow {
     reservedQty: number;
     availableQty: number;
 }
+
+export interface CustomDataGridSelection {
+    index: number;
+    data: GridValidRowModel;
+  }
