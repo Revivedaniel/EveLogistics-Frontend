@@ -10,8 +10,8 @@ export interface ItemInventoryRow {
 
 export interface ItemTableRow {
     id: number;
-    itemNumber: number;
-    itemName: string;
+    typeId: number;
+    name: string;
     totalQty: number;
     reservedQty: number;
     availableQty: number;
