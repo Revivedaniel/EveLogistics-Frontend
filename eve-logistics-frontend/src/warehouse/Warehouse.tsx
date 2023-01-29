@@ -1,5 +1,7 @@
 import { Backdrop } from "@mui/material";
-import { useState } from "react";
+import axios, { AxiosResponse } from "axios";
+import { useEffect, useState } from "react";
+import { urlUpdateInventory } from "../endpoints";
 import GenericTasks from "../general/GenericTasks";
 
 const buttons = [
@@ -37,13 +39,21 @@ export default function Warehouse() {
     setUpdateInventory(false);
   };
 
+  useEffect(() => {
+    if (updateInventory) {
+      axios.head(urlUpdateInventory).then((response: AxiosResponse) => {
+        handleClose();
+      });
+    }
+  }, [updateInventory]);
+
     return (
       <>
         <Backdrop
           sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
           open={updateInventory}
           onClick={handleClose}
-        >Updating Inventory...</Backdrop>
+        ></Backdrop>
         <GenericTasks
           heading="Warehouse Tasks"
           buttons={buttons}

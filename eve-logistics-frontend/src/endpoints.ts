@@ -16,3 +16,4 @@ export function urlStationInventory(stationName: string) {
 export const urlRegions = `${baseURL}/regions`;
 export const urlSystems = `${baseURL}/systems`;
 export const urlStation = `${baseURL}/stations`;
+export const urlUpdateInventory = `${baseURL}/inventory`;
