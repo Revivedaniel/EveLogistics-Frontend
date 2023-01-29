@@ -1,7 +1,7 @@
 import { GridColDef } from "@mui/x-data-grid";
 import axios, { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
-import urlItemInventory from "../endpoints";
+import { urlItemInventory } from "../endpoints";
 import Inventory from "./tables/Inventory";
 import { ItemInventoryRow } from "./warehouse.model";
 
