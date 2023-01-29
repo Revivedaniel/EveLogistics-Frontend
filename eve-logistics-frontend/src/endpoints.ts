@@ -13,3 +13,6 @@ export function urlSystemInventory(systemName: string) {
 export function urlStationInventory(stationName: string) {
     return `${baseURL}/inventory?station=${stationName}`;
 }
+export const urlRegions = `${baseURL}/regions`;
+export const urlSystems = `${baseURL}/systems`;
+export const urlStation = `${baseURL}/stations`;
