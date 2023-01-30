@@ -38,7 +38,7 @@ export default function InventoryByLocation() {
       <>
         {!region ? <RegionSelect setRegion={setRegion} setUniverseInventory={setUniverseInventory} /> : 
         !system ? <SystemSelect region={region} setSystem={setSystem} setRegionInventory={setRegionInventory} setRegion={setRegion} /> : 
-        !station ? <StationSelect system={system} setStation={setStation} setSystemInventory={setSystemInventory} setSystem={setSystem} /> : 
+        !station ? <StationSelect region={region} system={system} setStation={setStation} setSystemInventory={setSystemInventory} setSystem={setSystem} /> : 
         <>
         <GenericTasks heading="Inventory by Location" />
         <StationInventory station={station} setStation={setStation} />

@@ -10,8 +10,8 @@ export interface ItemInventoryRow {
 
 export interface ItemTableRow {
     id: number;
-    itemNumber: number;
-    itemName: string;
+    typeId: number;
+    name: string;
     totalQty: number;
     reservedQty: number;
     availableQty: number;
@@ -27,3 +27,8 @@ export interface StationInventoryRow {
     reservedQty: number;
     availableQty: number;
 }
+
+export interface CustomDataGridSelection {
+    index: number;
+    data: GridValidRowModel;
+  }
