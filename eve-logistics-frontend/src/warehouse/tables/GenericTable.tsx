@@ -16,7 +16,7 @@ export default function GenericTable(props: GenericTableProps) {
       <DataGrid rows={props.rows} columns={props.columns} 
       onSelectionModelChange={(newSelectionModel: GridRowId[]) => {
         if(props.setSelection) {
-          const data: GridValidRowModel =  props.rows ? props.rows[newSelectionModel[0] as number] : {error: "There was an error retrieving the selection"}
+          const data: GridValidRowModel =  props.rows ? props.rows[newSelectionModel[0] as number - 1] : {error: "There was an error retrieving the selection"}
           props.setSelection({index: newSelectionModel[0], data });
         }
       }}

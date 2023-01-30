@@ -28,7 +28,7 @@ export default function InventoryByItem() {
         setItems(response.data);
       })
     }
-  }, [selection, items]);
+  }, [items]);
 
     return (
       <>
