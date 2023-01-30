@@ -15,5 +15,11 @@ export function urlStationInventory(stationName: string) {
 }
 export const urlRegions = `${baseURL}/regions`;
 export const urlSystems = `${baseURL}/systems`;
+export function urlSystemByRegion(regionName: string) {
+    return `${baseURL}/systems?region=${regionName}`;
+};
 export const urlStation = `${baseURL}/stations`;
+export function urlStationBySystem(systemName: string) {
+    return `${baseURL}/stations?solarSystem=${systemName}`;
+}
 export const urlUpdateInventory = `${baseURL}/inventory`;

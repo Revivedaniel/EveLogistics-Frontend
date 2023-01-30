@@ -2,7 +2,7 @@ import { Region, Station, System } from "./General.model"
 import GenericSelect from "./GenericSelect";
 import { useState, useEffect } from 'react';
 import axios, { AxiosResponse } from "axios";
-import { urlSystems } from "../endpoints";
+import { urlSystemByRegion } from "../endpoints";
 
 export default function SystemSelect(props: SystemSelectProps) {
 
@@ -10,11 +10,11 @@ export default function SystemSelect(props: SystemSelectProps) {
 
     useEffect(() => {
       if (!systems) {
-        axios.get(urlSystems).then((response: AxiosResponse<Station[]>) => {
+        axios.get(urlSystemByRegion(props.region.name)).then((response: AxiosResponse<Station[]>) => {
           setSystems(response.data);
         })
       }
-    }, [systems]);
+    }, [systems, props.region.name]);
       
     return <>
         <GenericSelect title="System" selections={systems} extraButton={{title: `${props.region.name} Inventory`}} setSelection={props.setSystem} setExtraButtonClicked={props.setRegionInventory} backButtonTitle="Region Select" setBackButton={props.setRegion} />

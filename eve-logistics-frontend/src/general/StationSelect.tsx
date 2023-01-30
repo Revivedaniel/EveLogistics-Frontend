@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 import { useState, useEffect } from 'react';
-import { urlStation } from '../endpoints';
+import { urlStationBySystem } from '../endpoints';
 import { Region, Station, System } from "./General.model"
 import GenericSelect from "./GenericSelect";
 
@@ -10,11 +10,11 @@ export default function StationSelect(props: StationSelectProps) {
 
     useEffect(() => {
         if (!stations) {
-          axios.get(urlStation).then((response: AxiosResponse<Station[]>) => {
+          axios.get(urlStationBySystem(props.system.name)).then((response: AxiosResponse<Station[]>) => {
             setStations(response.data);
           })
         }
-      }, [stations]);
+      }, [stations, props.system.name]);
 
     return <>
         <GenericSelect title="Station" selections={stations} extraButton={{title: `${props.system.name} Inventory`}} setSelection={props.setStation} setExtraButtonClicked={props.setSystemInventory} backButtonTitle="System Select" setBackButton={props.setSystem} />
