@@ -4,6 +4,7 @@ import "./App.css";
 import { claim } from "./auth/auth.models";
 import AuthenticationContext from "./auth/AuthenticationContext";
 import Authorized from "./auth/Authorized";
+import Login from "./auth/Login";
 import Header from "./general/Header";
 
 function App() {
@@ -16,7 +17,9 @@ function App() {
     <Authorized authorized={<>
       <Header />
       <Outlet />
-    </>} notAuthorized={<>You are not authorized</>} role="admin" />
+    </>} notAuthorized={<>
+      <Login />
+    </>} role="admin" />
       
     </AuthenticationContext.Provider>
     </>
