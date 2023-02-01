@@ -7,6 +7,9 @@ import Authorized from "./auth/Authorized";
 import { getClaims } from "./auth/handleJWT";
 import Login from "./auth/Login";
 import Header from "./general/Header";
+import configureInterceptor from "./utils/httpInterceptors";
+
+configureInterceptor();
 
 function App() {
 
