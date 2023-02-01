@@ -4,6 +4,7 @@ import DisplayErrors from "../utils/DisplayErrors";
 import { authenticationResponse, userCredentials } from "./auth.models";
 import AuthForm from "./AuthForm";
 import {useState} from "react";
+import { saveToken } from "./handleJWT";
 
 export default function Login() {
 
@@ -13,6 +14,7 @@ export default function Login() {
         try {
             const response = await axios.post<authenticationResponse>(`${urlAccounts}/login`, credentials);
             console.log(response.data);
+            saveToken(response.data);
         } catch(error) {
             setErrors([error.response.data])
         }
