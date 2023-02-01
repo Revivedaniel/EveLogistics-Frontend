@@ -23,7 +23,7 @@ export function getClaims(): claim[]{
         return [];
     }
 
-    const dataToken = JSON.parse(token.split('.')[1]);
+    const dataToken = JSON.parse(window.atob(token.split('.')[1]));
     const response: claim[] = [];
     for (const property in dataToken) {
         response.push({name: property, value: dataToken[property]});
