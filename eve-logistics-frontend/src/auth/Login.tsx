@@ -3,18 +3,20 @@ import { urlAccounts } from "../endpoints";
 import DisplayErrors from "../utils/DisplayErrors";
 import { authenticationResponse, userCredentials } from "./auth.models";
 import AuthForm from "./AuthForm";
-import {useState} from "react";
-import { saveToken } from "./handleJWT";
+import {useState, useContext} from "react";
+import { getClaims, saveToken } from "./handleJWT";
+import AuthenticationContext from "./AuthenticationContext";
 
 export default function Login() {
 
     const [errors, setErrors] = useState<string[]>([]);
+    const {update} = useContext(AuthenticationContext);
 
     async function login(credentials: userCredentials) {
         try {
             const response = await axios.post<authenticationResponse>(`${urlAccounts}/login`, credentials);
-            console.log(response.data);
             saveToken(response.data);
+            update(getClaims());
         } catch(error) {
             setErrors([error.response.data])
         }
