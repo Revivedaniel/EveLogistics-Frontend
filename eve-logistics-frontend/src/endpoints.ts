@@ -23,3 +23,4 @@ export function urlStationBySystem(systemName: string) {
     return `${baseURL}/stations?solarSystem=${systemName}`;
 }
 export const urlUpdateInventory = `${baseURL}/inventory`;
+export const urlAccounts = `${baseURL}/accounts`;
