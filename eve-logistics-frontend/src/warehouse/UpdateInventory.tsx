@@ -1,3 +1,3 @@
 export default function UpdateInventory() {
-    return <h2>Update Inventory</h2>
+	return <h2>Update Inventory</h2>;
 }

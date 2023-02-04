@@ -1,3 +1,3 @@
 export default function CurrentJobs() {
-    return <h2>Current Jobs</h2>
+	return <h2>Current Jobs</h2>;
 }

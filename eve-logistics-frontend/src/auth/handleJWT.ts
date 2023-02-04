@@ -1,42 +1,43 @@
-import { authenticationResponse, claim } from "./auth.models";
+import {type AuthenticationResponse, type Claim} from './auth.models';
 
-const tokenKey = "eve-logistics-token";
-const expirationKey = "eve-logistics-token-expiration";
+const tokenKey: string = 'eve-logistics-token';
+const expirationKey: string = 'eve-logistics-token-expiration';
 
-export function saveToken(authData: authenticationResponse) {
-    localStorage.setitem(tokenKey, authData.token);
-    localStorage.setitem(expirationKey, authData.expiration.toString());
+export function saveToken(authData: AuthenticationResponse) {
+	localStorage.setitem(tokenKey, authData.token);
+	localStorage.setitem(expirationKey, authData.expiration.toString());
 }
 
-export function getClaims(): claim[]{
-    const token = localStorage.getItem(tokenKey);
+export function getClaims(): Claim[] {
+	const token = localStorage.getItem(tokenKey);
 
-    if (!token){
-        return [];
-    }
+	if (!token) {
+		return [];
+	}
 
-    const expiration = localStorage.getItem(expirationKey)!;
-    const expirationDate = new Date(expiration);
+	const expiration = localStorage.getItem(expirationKey)!;
+	const expirationDate = new Date(expiration);
 
-    if (expirationDate <= new Date()){
-        logout();
-        return [];
-    }
+	if (expirationDate <= new Date()) {
+		logout();
+		return [];
+	}
 
-    const dataToken = JSON.parse(window.atob(token.split('.')[1]));
-    const response: claim[] = [];
-    for (const property in dataToken) {
-        response.push({name: property, value: dataToken[property]});
-    }
+	const dataToken = JSON.parse(window.atob(token.split('.')[1]));
+	console.log(dataToken);
+	const response: Claim[] = [];
+	for (const property in dataToken) {
+		response.push({name: property, value: dataToken[property]});
+	}
 
-    return response;
+	return response;
 }
 
 export function logout() {
-    localStorage.removeItem(tokenKey);
-    localStorage.removeItem(expirationKey);
+	localStorage.removeItem(tokenKey);
+	localStorage.removeItem(expirationKey);
 }
 
-export function getToken(){
-    return localStorage.getItem(tokenKey);
+export function getToken() {
+	return localStorage.getItem(tokenKey);
 }

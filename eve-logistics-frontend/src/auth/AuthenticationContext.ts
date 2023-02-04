@@ -1,9 +1,17 @@
 import React from 'react';
-import { claim } from './auth.models';
+import {type Claim} from './auth.models';
 
-const AuthenticationContext = React.createContext<{
-    claims: claim[];
-    update(claims: claim[]): void;
-}>({claims: [], update: () => {}});
+const authenticationContext = React.createContext<AuthenticationContext>(
+	{
+		claims: [],
+		update() {
+			// This is so eslint can ignore this function
+		},
+	});
 
-export default AuthenticationContext;
+export default authenticationContext;
+
+type AuthenticationContext = {
+	claims: Claim[];
+	update(claims: Claim[]): void;
+};

@@ -1,3 +1,3 @@
 export default function VelocityReport() {
-    return <h2>Velocity Report</h2>
+	return <h2>Velocity Report</h2>;
 }

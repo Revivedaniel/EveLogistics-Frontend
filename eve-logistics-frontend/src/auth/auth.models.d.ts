@@ -1,14 +1,14 @@
-export interface claim {
-    name: string;
-    value: string;
-}
+export type Claim = {
+	name: string;
+	value: string;
+};
 
-export interface userCredentials {
-    email: string;
-    password: string;
-}
+export type UserCredentials = {
+	email: string;
+	password: string;
+};
 
-export interface authenticationResponse {
-    token: string;
-    expiration: string;
-}
+export type AuthenticationResponse = {
+	token: string;
+	expiration: string;
+};

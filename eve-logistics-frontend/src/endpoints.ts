@@ -1,26 +1,32 @@
-const baseURL = process.env.REACT_APP_API_URL + "/api";
-export const urlItems = `${baseURL}/items`;
+const baseUrl = `${process.env.REACT_APP_API_URL}/api`;
+export const urlItems = `${baseUrl}/items`;
 export function urlItemInventory(itemName: string) {
-    return `${baseURL}/inventory?item=${itemName}`;
+	return `${baseUrl}/inventory?item=${itemName}`;
 }
-export const urlUniverseInventory = `${baseURL}/inventory`;
+
+export const urlUniverseInventory = `${baseUrl}/inventory`;
 export function urlRegionInventory(regionName: string) {
-    return `${baseURL}/inventory?region=${regionName}`;
+	return `${baseUrl}/inventory?region=${regionName}`;
 }
+
 export function urlSystemInventory(systemName: string) {
-    return `${baseURL}/inventory?system=${systemName}`;
+	return `${baseUrl}/inventory?system=${systemName}`;
 }
+
 export function urlStationInventory(stationName: string) {
-    return `${baseURL}/inventory?station=${stationName}`;
+	return `${baseUrl}/inventory?station=${stationName}`;
 }
-export const urlRegions = `${baseURL}/regions`;
-export const urlSystems = `${baseURL}/systems`;
+
+export const urlRegions = `${baseUrl}/regions`;
+export const urlSystems = `${baseUrl}/systems`;
 export function urlSystemByRegion(regionName: string) {
-    return `${baseURL}/systems?region=${regionName}`;
-};
-export const urlStation = `${baseURL}/stations`;
-export function urlStationBySystem(systemName: string) {
-    return `${baseURL}/stations?solarSystem=${systemName}`;
+	return `${baseUrl}/systems?region=${regionName}`;
 }
-export const urlUpdateInventory = `${baseURL}/inventory`;
-export const urlAccounts = `${baseURL}/accounts`;
+
+export const urlStation = `${baseUrl}/stations`;
+export function urlStationBySystem(systemName: string) {
+	return `${baseUrl}/stations?solarSystem=${systemName}`;
+}
+
+export const urlUpdateInventory = `${baseUrl}/inventory`;
+export const urlAccounts = `${baseUrl}/accounts`;

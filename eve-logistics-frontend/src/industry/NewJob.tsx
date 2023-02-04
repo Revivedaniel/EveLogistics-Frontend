@@ -1,3 +1,3 @@
 export default function NewJob() {
-    return <h2>New Job</h2>
+	return <h2>New Job</h2>;
 }

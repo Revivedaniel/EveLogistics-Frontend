@@ -1,3 +1,3 @@
 export default function Forecast() {
-    return <h2>Forecast</h2>
+	return <h2>Forecast</h2>;
 }
