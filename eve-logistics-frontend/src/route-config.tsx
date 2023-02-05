@@ -12,6 +12,7 @@ import Picking from "./warehouse/Picking";
 import Receiving from "./warehouse/Receiving";
 import WarehouseTransfer from "./warehouse/WarehouseTransfer";
 import UpdateInventory from "./warehouse/UpdateInventory";
+import Login from "./auth/Login";
 
 const buttons = [
     {
@@ -86,6 +87,10 @@ const routes = [
                 path: "hauling",
                 element: <Hauling />,
             },
+            {
+                path: "login",
+                element: <Login />,
+            },            
         ],
     },
 ];

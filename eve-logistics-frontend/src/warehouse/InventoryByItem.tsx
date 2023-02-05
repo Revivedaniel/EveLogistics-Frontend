@@ -34,7 +34,7 @@ export default function InventoryByItem() {
       <>
         <GenericTasks heading="Inventory by Item" />
         {selection ? (
-          <ItemInventory setSelection={setSelection} selectionName={selection.data.name} />
+          <ItemInventory setSelection={setSelection} selectionName={selection.data[0].name} />
         ) : (
           <div className={css.container}>
             <GenericTable
