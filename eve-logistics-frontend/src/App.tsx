@@ -1,25 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import { Outlet } from "react-router";
+import "./App.css";
+import { claim } from "./auth/auth.models";
+import AuthenticationContext from "./auth/AuthenticationContext";
+import Authorized from "./auth/Authorized";
+import { getClaims } from "./auth/handleJWT";
+import Login from "./auth/Login";
+import Header from "./general/Header";
+import configureInterceptor from "./utils/httpInterceptors";
+
+configureInterceptor();
 
 function App() {
+
+  const [claims, setClaims] = useState<claim[]>([]);
+
+  useEffect(() => {
+    setClaims(getClaims());
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <AuthenticationContext.Provider value={{claims, update: setClaims}} >
+    <Authorized authorized={<>
+      <Header />
+      <Outlet />
+    </>} notAuthorized={<>
+      <Login />
+    </>} />
+      
+    </AuthenticationContext.Provider>
+    </>
   );
 }
 
