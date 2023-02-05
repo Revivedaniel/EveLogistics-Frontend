@@ -13,10 +13,11 @@ export default function GenericTable(props: GenericTableProps) {
     } else {
       return <>
     <div style={{ height: 500, width: '100%' }}>
-      <DataGrid rows={props.rows} columns={props.columns} 
+      <DataGrid getRowId={(row) => row._id} rows={props.rows} columns={props.columns} 
       onSelectionModelChange={(newSelectionModel: GridRowId[]) => {
         if(props.setSelection) {
-          const data: GridValidRowModel =  props.rows ? props.rows[newSelectionModel[0] as number - 1] : {error: "There was an error retrieving the selection"}
+          const data: GridValidRowModel =  props.rows ? props.rows.filter(row => row._id === newSelectionModel[0]) : {error: "There was an error retrieving the selection"};
+          console.log(newSelectionModel[0])
           props.setSelection({index: newSelectionModel[0], data });
         }
       }}
