@@ -1,14 +1,63 @@
 main {
     width: 50vw;
+    color: #d8d8d8;
+}
+
+main article form {
+    border-top: 1px solid rgba(10, 10, 10, 0.63);
     background-image: none;
     background-color: rgba(10, 10, 10, 0.63);
     transition: background-color 0.3s linear;
     opacity: 1;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 35vw;
+    height: 23vw;
 }
 
-main:hover {
+main article form:hover {
+    border-top: 1px solid #3c6c79;
     background-color: rgba(10, 10, 10, 0.91);
-    background-Image: url(../imgs/tile.jpg);
+    background-image: url(../imgs/tile.jpg);
+    animation-iteration-count: 1;
+    animation: imageIn 0.3s ease;
+    opacity: 0.91;
+}
+
+main article form div {
+    width: 25vw;
+}
+
+main article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 95vh;
+}
+
+main h1 {
+    height: 5vh;
+    margin: 0;
+}
+
+aside {
+    width: 50vw;
+    background-position: center;
+    background-size: cover;
+    background-color: rgba(10, 10, 10, 0.63);
+    background-image: none;
+    transition: background-color 0.3s linear;
+    opacity: 1;
+}
+
+aside:hover {
+    border-top: 1px solid #3c6c79;
+    background-color: rgba(10, 10, 10, 0.91);
+    background-image: url(../imgs/tile.jpg);
     animation-iteration-count: 1;
     animation: imageIn 0.3s ease;
     opacity: 0.91;
@@ -49,29 +98,3 @@ main:hover {
         opacity: 0.91;
     }
   }
-
-main article {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 95vh;
-}
-
-main article form {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    width: 25vw;
-}
-
-main h1 {
-    height: 5vh;
-    margin: 0;
-}
-
-aside {
-    width: 50vw;
-    background-position: center;
-    background-size: cover;
-}
