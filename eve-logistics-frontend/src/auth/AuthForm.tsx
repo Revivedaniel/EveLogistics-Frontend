@@ -1,32 +1,68 @@
-import { Formik, FormikHelpers, Form } from "formik";
+import TextField from '@mui/material/TextField';
 import { userCredentials } from "./auth.models";
-import * as Yup from "yup";
-import TextField from "../forms/TextField";
-import Button from "../utils/Button";
+import { useState } from "react";
+import { Button } from '@mui/material';
 
-export default function AuthForm(props: authFormProps) {
+export default function AuthForm(props: AuthFormProps) {
+    const [emailError, setEmailError] = useState<string>("");
+    const [passwordError, setPasswordError] = useState<string>("");
+
+    function validateEmail(email: string) {
+      const re = /\S+@\S+\.\S+/;
+      if (!re.test(email)) {
+        setEmailError("Invalid email format");
+        return;
+      }
+      setEmailError("");
+      return;
+    }
+    function validatePassword(password: string) {
+      const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+      if (!re.test(password)) {
+        setPasswordError("Invalid password format");
+        return;
+      }
+      setPasswordError("");
+      return;
+    }
+
     return (
-        <Formik 
-            initialValues={props.model}
-            onSubmit={props.onSubmit}
-            validationSchema={Yup.object({
-                email: Yup.string().required("This field is required").email("Invalid email address"),
-                password: Yup.string().required("This field is required")
-            })}
-        >
-            {formikProps => (
-                <Form>
-                    <TextField displayName="Email" field="email" />
-                    <TextField displayName="Password" field="password" type="password" />
+      <form onSubmit={(e) => {
+        e.preventDefault();
+        const form = e.currentTarget;
+        const email = form.email.value;
+        const password = form.password.value;
+        props.action({email, password});
+      }}>
+        <h2>Login to Eve Logistics</h2>
+        <TextField
+        error={emailError !== ""}
+          required
+          type="email"
+          label="Email"
+          name="email"
+          helperText={emailError}
+          onBlur={(e) => {validateEmail(e.target.value);}}
+        />
+        <TextField 
+        error={passwordError !== ""}
+        required 
+        label="Password" 
+        type="password" 
+        name="password"
+        helperText={passwordError} 
+        onBlur={(e) => {validatePassword(e.target.value);}}
+        />
 
-                    <Button disabled={formikProps.isSubmitting} type="submit">Send</Button>
-                </Form>
-            )}
-        </Formik>
-    )
+        <Button type="submit">
+          Login
+        </Button>
+        <Button disabled>Register</Button>
+        <span>Disabled while in alpha</span>
+      </form>
+    );
 }
 
-interface authFormProps {
-    model: userCredentials;
-    onSubmit(values: userCredentials, actions: FormikHelpers<userCredentials>): void;
+interface AuthFormProps {
+    action(credentials: userCredentials): Promise<void>;
 }
