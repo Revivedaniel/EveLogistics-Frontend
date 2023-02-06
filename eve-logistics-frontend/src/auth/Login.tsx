@@ -18,7 +18,7 @@ export default function Login() {
             saveToken(response.data);
             update(getClaims());
         } catch(error) {
-            setErrors([error]);
+            setErrors([error.response.data]);
         }
     }
 
