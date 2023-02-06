@@ -1,0 +1,77 @@
+main {
+    width: 50vw;
+    background-image: none;
+    background-color: rgba(10, 10, 10, 0.63);
+    transition: background-color 0.3s linear;
+    opacity: 1;
+}
+
+main:hover {
+    background-color: rgba(10, 10, 10, 0.91);
+    background-Image: url(../imgs/tile.jpg);
+    animation-iteration-count: 1;
+    animation: imageIn 0.3s ease;
+    opacity: 0.91;
+}
+
+@keyframes imageIn {
+    0% {
+        opacity: .65;
+    }
+    10% {
+        opacity: .65;
+    }
+    20% {
+        opacity: .65;
+    }
+    30% {
+        opacity: .7
+    }
+    40% {
+        opacity: .7
+    }
+    50% {
+        opacity: .75;
+    }
+    60% {
+        opacity: .75;
+    }
+    70% {
+        opacity: .8
+    }
+    80% {
+        opacity: .85;
+    }
+    90% {
+        opacity: .9
+    }
+    100% {
+        opacity: 0.91;
+    }
+  }
+
+main article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 95vh;
+}
+
+main article form {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 25vw;
+}
+
+main h1 {
+    height: 5vh;
+    margin: 0;
+}
+
+aside {
+    width: 50vw;
+    background-position: center;
+    background-size: cover;
+}

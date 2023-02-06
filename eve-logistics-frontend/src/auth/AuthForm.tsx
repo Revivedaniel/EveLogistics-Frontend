@@ -43,6 +43,7 @@ export default function AuthForm(props: AuthFormProps) {
           name="email"
           helperText={emailError}
           onBlur={(e) => {validateEmail(e.target.value);}}
+          margin="normal"
         />
         <TextField 
         error={passwordError !== ""}
@@ -52,6 +53,7 @@ export default function AuthForm(props: AuthFormProps) {
         name="password"
         helperText={passwordError} 
         onBlur={(e) => {validatePassword(e.target.value);}}
+        margin="normal"
         />
 
         <Button type="submit">
