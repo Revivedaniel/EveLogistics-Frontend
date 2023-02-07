@@ -1,4 +1,4 @@
-// import GenericTasks from "../general/GenericTasks";
+// Import GenericTasks from "../general/GenericTasks";
 
 // const buttons = [
 //     {
@@ -23,7 +23,7 @@
 //     },
 //   ];
 
-export default function Market() {
-    // return <GenericTasks heading="Market Tasks" buttons={buttons}/>
+export default function Market (): JSX.Element {
+  // Return <GenericTasks heading="Market Tasks" buttons={buttons}/>
   return <h2>Coming Soon...</h2>
 }

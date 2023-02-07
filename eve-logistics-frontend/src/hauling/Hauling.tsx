@@ -1,4 +1,4 @@
-// import GenericTasks from "../general/GenericTasks";
+// Import GenericTasks from "../general/GenericTasks";
 
 // const buttons = [
 //     {
@@ -11,7 +11,7 @@
 //     }
 //   ];
 
-export default function Hauling() {
-    // return <GenericTasks heading="Hauling Tasks" buttons={buttons}/>
-    return <h2>Coming Soon...</h2>
+export default function Hauling (): JSX.Element {
+  // Return <GenericTasks heading="Hauling Tasks" buttons={buttons}/>
+  return <h2>Coming Soon...</h2>
 }

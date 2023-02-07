@@ -1,3 +1,3 @@
-export default function SalesOrders() {
-    return <h2>Sales Orders</h2>
+export default function SalesOrders (): JSX.Element {
+  return <h2>Sales Orders</h2>
 }

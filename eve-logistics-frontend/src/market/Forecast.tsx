@@ -1,3 +1,3 @@
-export default function Forecast() {
-    return <h2>Forecast</h2>
+export default function Forecast (): JSX.Element {
+  return <h2>Forecast</h2>
 }

@@ -1,24 +1,24 @@
-import { Button, Typography } from "@mui/material";
-import css from "./GenericTasks.module.css";
+import { Button, Typography } from '@mui/material'
+import { type GenericSelection } from './General.model'
+import css from './GenericTasks.module.css'
 
-export default function GenericSelect(props: RegionSelectProps) {
-
-  const handleExtraButton = (e: any) => {
-    if (props.setExtraButtonClicked) {
-      props.setExtraButtonClicked(true);
+export default function GenericSelect (props: RegionSelectProps): JSX.Element {
+  const handleExtraButton = (e: any): void => {
+    if (props.setExtraButtonClicked != null) {
+      props.setExtraButtonClicked(true)
     }
-  };
+  }
 
-  const handleSelection = (e: any) => {
-    if (props.selections) {
-      props.setSelection(props.selections[e.target.dataset.selection]);
+  const handleSelection = (e: any): void => {
+    if (props.selections != null) {
+      props.setSelection(props.selections[e.target.dataset.selection])
     }
-  };
+  }
 
-  const handleRegionSelect = (e: any) => {
-    if (props.setBackButton) {
-      props.setBackButton(undefined);
-    } 
+  const handleRegionSelect = (e: any): void => {
+    if (props.setBackButton != null) {
+      props.setBackButton(undefined)
+    }
   }
 
   return (
@@ -26,34 +26,39 @@ export default function GenericSelect(props: RegionSelectProps) {
       <Typography
         variant="h2"
         className={css.h2}
-        style={{ marginTop: "25px", marginBottom: "10px" }}
+        style={{ marginTop: '25px', marginBottom: '10px' }}
       >
         Select a {props.title}
       </Typography>
 
       <div className={css.selectionList}>
         <div className={css.additionalButtons}>
-          {props.extraButton ? (
+          {props.extraButton != null
+            ? (
             <Button
               variant="contained"
               onClick={handleExtraButton}
-              style={{ width: "30%" }}
+              style={{ width: '30%' }}
             >
               {props.extraButton.title}
             </Button>
-          ) : null}
-          {props.backButtonTitle ? (
+              )
+            : null}
+          {props.backButtonTitle !== null
+            ? (
             <Button
               variant="contained"
               onClick={handleRegionSelect}
-              style={{ width: "30%" }}
+              style={{ width: '30%' }}
             >
               {props.backButtonTitle}
             </Button>
-          ) : null}
+              )
+            : null}
         </div>
 
-        {props.selections ? (
+        {props.selections != null
+          ? (
           <div>
             {props.selections.map((selection, i) => (
               <Button
@@ -66,29 +71,25 @@ export default function GenericSelect(props: RegionSelectProps) {
               </Button>
             ))}
           </div>
-        ) : (
+            )
+          : (
           <h2>Loading...</h2>
-        )}
+            )}
       </div>
     </>
-  );
-}
-
-interface GenericSelection {
-  id: number;
-  name: string;
+  )
 }
 
 interface ExtraButton {
-  title: string;
+  title: string
 }
 
 interface RegionSelectProps {
-  title: string;
-  selections?: GenericSelection[];
-  extraButton?: ExtraButton;
-  setSelection: Function;
-  setExtraButtonClicked?: Function;
-  backButtonTitle?: string;
-  setBackButton?: Function;
+  title: string
+  selections?: GenericSelection[]
+  extraButton?: ExtraButton
+  setSelection: (arg0: GenericSelection) => void
+  setExtraButtonClicked?: (arg0: boolean) => void
+  backButtonTitle?: string
+  setBackButton?: (arg0: GenericSelection | undefined) => void
 }

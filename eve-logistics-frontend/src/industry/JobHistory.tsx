@@ -1,3 +1,3 @@
-export default function JobHistory() {
-    return <h2>Job History</h2>
+export default function JobHistory (): JSX.Element {
+  return <h2>Job History</h2>
 }

@@ -1,3 +1,3 @@
-export default function Anomalies() {
-    return <h2>Anomalies</h2>
+export default function Anomalies (): JSX.Element {
+  return <h2>Anomalies</h2>
 }
