@@ -48,6 +48,10 @@ export default function Login() {
           </article>
         </main>
         <aside className={css.aside}>
+            <h2>What is Eve Logistics?</h2>
+            <p>Eve Logistics is a full stack web application that allows you to manage your logistics in Eve Online. It consists of 4 core logistics solutions joined into an all in one solution for Eve online logistics.</p>
+            <h2>Why can't I register?</h2>
+            <p>Currently, Eve Logistics is in pre-alpa as a proof of concept. Once the beta rolls oout I will be opening up the site to about 10-20 power users. Star the repo on github and check back in periodically for more information!</p>
         </aside>
       </div>
     );

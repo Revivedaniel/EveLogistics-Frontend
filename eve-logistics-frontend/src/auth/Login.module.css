@@ -4,7 +4,7 @@ main {
 }
 
 main article form {
-    border-top: 1px solid rgba(10, 10, 10, 0.63);
+    border-top: 2px solid rgba(10, 10, 10, 0);
     background-image: none;
     background-color: rgba(10, 10, 10, 0.63);
     transition: background-color 0.3s linear;
@@ -19,7 +19,7 @@ main article form {
 }
 
 main article form:hover {
-    border-top: 1px solid #3c6c79;
+    border-top: 2px solid #47a8c0;
     background-color: rgba(10, 10, 10, 0.91);
     background-image: url(../imgs/tile.jpg);
     animation-iteration-count: 1;
@@ -42,9 +42,11 @@ main article {
 main h1 {
     height: 5vh;
     margin: 0;
+    padding-left: 25px;
 }
 
 aside {
+    color: #d8d8d8;
     width: 50vw;
     background-position: center;
     background-size: cover;
@@ -55,13 +57,16 @@ aside {
 }
 
 aside:hover {
-    border-top: 1px solid #3c6c79;
     background-color: rgba(10, 10, 10, 0.91);
     background-image: url(../imgs/tile.jpg);
     animation-iteration-count: 1;
     animation: imageIn 0.3s ease;
     opacity: 0.91;
     background-size: auto;
+}
+
+aside p {
+    width: 85%;
 }
 
 @keyframes imageIn {
