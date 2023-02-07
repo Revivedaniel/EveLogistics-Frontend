@@ -1,0 +1,20 @@
+.link {
+    text-decoration: none;
+    color: #fff;
+    font-size: larger;
+    margin-right: 15px;
+}
+
+.jumbotron {
+    text-decoration: none;
+    color: #fff;
+    font-size: xx-large;
+    margin-right: 10px;
+    padding: 10px 10px 10px 0;
+}
+
+.toolBar {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
