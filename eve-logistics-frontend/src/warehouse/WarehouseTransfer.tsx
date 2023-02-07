@@ -1,3 +1,3 @@
-export default function WarehouseTransfer() {
-    return <h2>Warehouse Transfer</h2>
+export default function WarehouseTransfer (): JSX.Element {
+  return <h2>Warehouse Transfer</h2>
 }

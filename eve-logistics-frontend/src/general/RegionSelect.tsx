@@ -1,25 +1,26 @@
-import GenericSelect from "./GenericSelect";
-import { useState, useEffect } from 'react';
-import { Region } from "./General.model";
-import axios, { AxiosResponse } from "axios";
-import { urlRegions } from "../endpoints";
+import GenericSelect from './GenericSelect'
+import { useState, useEffect } from 'react'
+import { type GenericSelection, type Region } from './General.model'
+import axios, { type AxiosResponse } from 'axios'
+import { urlRegions } from '../endpoints'
 
-export default function RegionSelect(props: RegionSelectProps) {
+export default function RegionSelect (props: RegionSelectProps): JSX.Element {
+  const [regions, setRegions] = useState<Region[] | undefined>(undefined)
 
-    const [regions, setRegions] = useState<Region[] | undefined>(undefined);
+  useEffect(() => {
+    if (regions == null) {
+      axios.get(urlRegions).then((response: AxiosResponse<Region[]>) => {
+        setRegions(response.data)
+      }).catch((error: any) => {
+        console.log(error)
+      })
+    }
+  }, [regions])
 
-    useEffect(() => {
-        if (!regions) {
-          axios.get(urlRegions).then((response: AxiosResponse<Region[]>) => {
-            setRegions(response.data);
-          })
-        }
-      }, [regions]);
-
-    return <GenericSelect title="Region" selections={regions} extraButton={{title: "Universe Inventory"}} setSelection={props.setRegion} setExtraButtonClicked={props.setUniverseInventory} />
+  return <GenericSelect title='Region' selections={regions} extraButton={{ title: 'Universe Inventory' }} setSelection={props.setRegion} setExtraButtonClicked={props.setUniverseInventory} backButtonTitle="Go Back"/>
 }
 
 interface RegionSelectProps {
-    setRegion: Function;
-    setUniverseInventory?: Function;
+  setRegion: (arg0: GenericSelection) => void
+  setUniverseInventory?: (arg0: boolean) => void
 }

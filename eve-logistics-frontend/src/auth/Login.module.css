@@ -1,0 +1,109 @@
+main {
+    width: 50vw;
+    color: #d8d8d8;
+}
+
+main article form {
+    border-top: 2px solid rgba(10, 10, 10, 0);
+    background-image: none;
+    background-color: rgba(10, 10, 10, 0.63);
+    transition: background-color 0.3s linear;
+    opacity: 1;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 35vw;
+    height: 23vw;
+}
+
+main article form:hover {
+    border-top: 2px solid #47a8c0;
+    background-color: rgba(10, 10, 10, 0.91);
+    background-image: url(../imgs/tile.jpg);
+    animation-iteration-count: 1;
+    animation: imageIn 0.3s ease;
+    opacity: 0.91;
+}
+
+main article form div {
+    width: 25vw;
+}
+
+main article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 95vh;
+}
+
+main h1 {
+    height: 5vh;
+    margin: 0;
+    padding-left: 25px;
+}
+
+aside {
+    color: #d8d8d8;
+    width: 50vw;
+    background-position: center;
+    background-size: cover;
+    background-color: rgba(10, 10, 10, 0.63);
+    background-image: none;
+    transition: background-color 0.3s linear;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+aside:hover {
+    background-color: rgba(10, 10, 10, 0.91);
+    background-image: url(../imgs/tile.jpg);
+    animation-iteration-count: 1;
+    animation: imageIn 0.3s ease;
+    opacity: 0.91;
+    background-size: auto;
+}
+
+aside p {
+    width: 85%;
+}
+
+@keyframes imageIn {
+    0% {
+        opacity: .65;
+    }
+    10% {
+        opacity: .65;
+    }
+    20% {
+        opacity: .65;
+    }
+    30% {
+        opacity: .7
+    }
+    40% {
+        opacity: .7
+    }
+    50% {
+        opacity: .75;
+    }
+    60% {
+        opacity: .75;
+    }
+    70% {
+        opacity: .8
+    }
+    80% {
+        opacity: .85;
+    }
+    90% {
+        opacity: .9
+    }
+    100% {
+        opacity: 0.91;
+    }
+  }

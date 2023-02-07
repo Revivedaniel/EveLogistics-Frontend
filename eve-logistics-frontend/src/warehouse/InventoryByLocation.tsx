@@ -1,49 +1,100 @@
-import RegionSelect from "../general/RegionSelect";
-import { useState } from 'react';
-import { Region, Station, System } from "../general/General.model";
-import SystemSelect from "../general/SystemSelect";
-import StationSelect from "../general/StationSelect";
-import GenericTasks from "../general/GenericTasks";
-import StationInventory from "./tables/StationInventory";
-import SystemInventory from "./tables/SystemInventory";
-import RegionInventory from "./tables/RegionInventory";
-import UniverseInventory from "./tables/UniverseInventory";
+import RegionSelect from '../general/RegionSelect'
+import { useEffect, useState } from 'react'
+import { type Region, type Station, type System } from '../general/General.model'
+import SystemSelect from '../general/SystemSelect'
+import StationSelect from '../general/StationSelect'
+import GenericTasks from '../general/GenericTasks'
+import StationInventory from './tables/StationInventory'
+import SystemInventory from './tables/SystemInventory'
+import RegionInventory from './tables/RegionInventory'
+import UniverseInventory from './tables/UniverseInventory'
 
-export default function InventoryByLocation() {
+export default function InventoryByLocation (): JSX.Element {
+  const [region, setRegion] = useState<Region | undefined>(undefined)
+  const [system, setSystem] = useState<System | undefined>(undefined)
+  const [station, setStation] = useState<Station | undefined>(undefined)
+  const [stationInventory, setStationInventory] = useState<boolean>(false)
+  const [systemInventory, setSystemInventory] = useState<boolean>(false)
+  const [regionInventory, setRegionInventory] = useState<boolean>(false)
+  const [universeInventory, setUniverseInventory] = useState<boolean>(false)
 
-  const [region, setRegion] = useState<Region | undefined>(undefined);
-  const [system, setSystem] = useState<System | undefined>(undefined);
-  const [station, setStation] = useState<Station | undefined>(undefined);
-  const [systemInventory, setSystemInventory] = useState<boolean>(false);
-  const [regionInventory, setRegionInventory] = useState<boolean>(false);
-  const [universeInventory, setUniverseInventory] = useState<boolean>(false);
+  useEffect(() => {
+    if (stationInventory) {
+      setStation(undefined)
+      setStationInventory(false)
+    }
+  }, [stationInventory])
 
-  if (system && systemInventory) {
-    return <>
-      <GenericTasks heading="Inventory by Location" />
-      <SystemInventory system={system} setSystemInventory={setSystemInventory} />
-    </>
-  } else if (region && regionInventory) {
-    return <>
-      <GenericTasks heading="Inventory by Location" />
-      <RegionInventory region={region} setRegionInventory={setRegionInventory} />
-    </>
-    } else if (universeInventory) {
-      return <>
+  if (system != null && systemInventory) {
+    return (
+      <>
+        <GenericTasks heading="Inventory by Location" />
+        <SystemInventory
+          system={system}
+          setSystemInventory={setSystemInventory}
+        />
+      </>
+    )
+  }
+
+  if (region != null && regionInventory) {
+    return (
+      <>
+        <GenericTasks heading="Inventory by Location" />
+        <RegionInventory
+          region={region}
+          setRegionInventory={setRegionInventory}
+        />
+      </>
+    )
+  }
+
+  if (universeInventory) {
+    return (
+      <>
         <GenericTasks heading="Inventory by Location" />
         <UniverseInventory setUniverseInventory={setUniverseInventory} />
       </>
-  } else {
-    return (
-      <>
-        {!region ? <RegionSelect setRegion={setRegion} setUniverseInventory={setUniverseInventory} /> : 
-        !system ? <SystemSelect region={region} setSystem={setSystem} setRegionInventory={setRegionInventory} setRegion={setRegion} /> : 
-        !station ? <StationSelect region={region} system={system} setStation={setStation} setSystemInventory={setSystemInventory} setSystem={setSystem} /> : 
-        <>
-        <GenericTasks heading="Inventory by Location" />
-        <StationInventory station={station} setStation={setStation} />
-        </>}
-      </>
-    );
+    )
   }
+
+  return (
+    <>
+      {region == null
+        ? (
+        <RegionSelect
+          setRegion={setRegion}
+          setUniverseInventory={setUniverseInventory}
+        />
+          )
+        : system == null
+          ? (
+        <SystemSelect
+          region={region}
+          setSystem={setSystem}
+          setRegionInventory={setRegionInventory}
+          setRegion={setRegion}
+        />
+            )
+          : station == null
+            ? (
+        <StationSelect
+          region={region}
+          system={system}
+          setStation={setStation}
+          setSystemInventory={setSystemInventory}
+          setSystem={setSystem}
+        />
+              )
+            : (
+        <>
+          <GenericTasks heading="Inventory by Location" />
+          <StationInventory
+            station={station}
+            setStation={setStationInventory}
+          />
+        </>
+              )}
+    </>
+  )
 }
