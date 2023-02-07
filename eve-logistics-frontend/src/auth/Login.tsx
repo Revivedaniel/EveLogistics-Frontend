@@ -47,7 +47,7 @@ export default function Login() {
                 />
           </article>
         </main>
-        <aside className={css.aside} style={{backgroundImage: `url()`}}>
+        <aside className={css.aside}>
         </aside>
       </div>
     );

@@ -21,6 +21,13 @@ export default function AuthForm(props: AuthFormProps) {
         "& .MuiFormHelperText-root": {color: "#f2884f !important"},
     };
 
+    const buttonStyles = {
+        border: "2px solid #47a8c0", 
+        backgroundColor: "rgba(27.8, 66, 75.4, 0.63)", 
+        color: "inherit",
+        width: "45%"
+      }
+
     function validateEmail(email: string) {
       const re = /\S+@\S+\.\S+/;
       if (!re.test(email)) {
@@ -72,10 +79,15 @@ export default function AuthForm(props: AuthFormProps) {
         sx={textFieldStyles}
         />
 
-        <Button type="submit">
-          Login
-        </Button>
-        <Button disabled>Register</Button>
+        <div style={{
+          display: "flex",
+          justifyContent: "space-between",
+        }}>
+          <Button type="submit" sx={buttonStyles}>
+            Login
+          </Button>
+          <Button disabled variant="outlined" sx={buttonStyles}>Register</Button>
+        </div>
       </form>
     );
 }
