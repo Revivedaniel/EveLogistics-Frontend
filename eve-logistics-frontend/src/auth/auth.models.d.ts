@@ -8,7 +8,6 @@ export type UserCredentials = {
 	password: string;
 };
 
-export type AuthenticationResponse = {
-	token: string;
-	expiration: string;
-};
+export interface authenticationResponse {
+    token: string;
+}

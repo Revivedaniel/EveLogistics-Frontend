@@ -5,18 +5,9 @@
     },
     "extends": [
         "plugin:react/recommended",
-        "xo"
+        "standard-with-typescript"
     ],
     "overrides": [
-        {
-            "extends": [
-                "xo-typescript"
-            ],
-            "files": [
-                "*.ts",
-                "*.tsx"
-            ]
-        }
     ],
     "parserOptions": {
         "ecmaVersion": "latest",

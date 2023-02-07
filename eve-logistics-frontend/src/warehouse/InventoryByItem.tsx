@@ -28,20 +28,28 @@ export default function InventoryByItem() {
 		}
 	}, [items]);
 
-	return (
-		<>
-			<GenericTasks heading='Inventory by Item' />
-			{selection ? (
-				<ItemInventory setSelection={setSelection} selectionName={selection.data.name} />
-			) : (
-				<div className={css.container}>
-					<GenericTable
-						rows={items}
-						columns={columns}
-						setSelection={setSelection}
-					/>
-				</div>
-			)}
-		</>
-	);
+  useEffect(() => {
+    if (!items) {
+      axios.get(urlItems).then((response: AxiosResponse<ItemTableRow[]>) => {
+        setItems(response.data);
+      })
+    }
+  }, [items]);
+
+    return (
+      <>
+        <GenericTasks heading="Inventory by Item" />
+        {selection ? (
+          <ItemInventory setSelection={setSelection} selectionName={selection.data[0].name} />
+        ) : (
+          <div className={css.container}>
+            <GenericTable
+              rows={items}
+              columns={columns}
+              setSelection={setSelection}
+            />
+          </div>
+        )}
+      </>
+    );
 }
