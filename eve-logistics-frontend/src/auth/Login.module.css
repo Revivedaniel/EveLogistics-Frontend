@@ -61,6 +61,7 @@ aside:hover {
     animation-iteration-count: 1;
     animation: imageIn 0.3s ease;
     opacity: 0.91;
+    background-size: auto;
 }
 
 @keyframes imageIn {
