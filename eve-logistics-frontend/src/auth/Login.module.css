@@ -54,6 +54,9 @@ aside {
     background-image: none;
     transition: background-color 0.3s linear;
     opacity: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 aside:hover {
