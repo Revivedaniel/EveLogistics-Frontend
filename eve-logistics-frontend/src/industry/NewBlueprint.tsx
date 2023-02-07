@@ -1,3 +1,3 @@
-export default function NewBlueprint() {
-	return <h2>New Blueprint</h2>;
+export default function NewBlueprint (): JSX.Element {
+  return <h2>New Blueprint</h2>
 }

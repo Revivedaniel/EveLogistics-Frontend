@@ -23,7 +23,7 @@
 //     },
 //   ];
 
-export default function Market() {
-	// Return <GenericTasks heading="Market Tasks" buttons={buttons}/>
-	return <h2>Coming Soon...</h2>;
+export default function Market (): JSX.Element {
+  // Return <GenericTasks heading="Market Tasks" buttons={buttons}/>
+  return <h2>Coming Soon...</h2>
 }

@@ -23,7 +23,7 @@
 //     },
 //   ];
 
-export default function Industry() {
-	// Return <GenericTasks heading="Industry Tasks" buttons={buttons}/>
-	return <h2>Coming Soon...</h2>;
+export default function Industry (): JSX.Element {
+  // Return <GenericTasks heading="Industry Tasks" buttons={buttons}/>
+  return <h2>Coming Soon...</h2>
 }

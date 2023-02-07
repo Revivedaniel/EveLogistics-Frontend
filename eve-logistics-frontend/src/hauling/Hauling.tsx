@@ -11,7 +11,7 @@
 //     }
 //   ];
 
-export default function Hauling() {
-	// Return <GenericTasks heading="Hauling Tasks" buttons={buttons}/>
-	return <h2>Coming Soon...</h2>;
+export default function Hauling (): JSX.Element {
+  // Return <GenericTasks heading="Hauling Tasks" buttons={buttons}/>
+  return <h2>Coming Soon...</h2>
 }

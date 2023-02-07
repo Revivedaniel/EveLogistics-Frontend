@@ -1,40 +1,40 @@
-import React from 'react';
+import React from 'react'
 
 class ErrorBoundary extends React.Component<errorBoundaryProps, errorBoundaryState> {
-	constructor(props: errorBoundaryProps) {
-		super(props);
-		this.state = {hasError: false, message: ''};
-	}
+  constructor (props: errorBoundaryProps) {
+    super(props)
+    this.state = { hasError: false, message: '' }
+  }
 
-	static getDerivedStateFromError(error: any) {
-		return {hasError: true, message: error};
-	}
+  static getDerivedStateFromError (error: any): errorBoundaryState {
+    return { hasError: true, message: error }
+  }
 
-	componentDidCatch(error: any, errorInfo: any) {
-		console.log(error);
-	}
+  componentDidCatch (error: any, errorInfo: any): void {
+    console.log(error)
+  }
 
-	render() {
-		if (this.state.hasError) {
-			if (this.props.errorUI) {
-				return this.props.errorUI;
-			}
+  render (): React.ReactNode {
+    if (this.state.hasError) {
+      if (this.props.errorUI !== undefined) {
+        return this.props.errorUI
+      }
 
-			return <h3>{this.state.message}</h3>;
-		}
+      return <h3>{this.state.message}</h3>
+    }
 
-		return this.props.children;
-	}
+    return this.props.children
+  }
 }
 
-type errorBoundaryProps = {
-	children: React.ReactNode;
-	errorUI?: React.ReactNode;
-};
+interface errorBoundaryProps {
+  children: React.ReactNode
+  errorUI?: React.ReactNode
+}
 
-type errorBoundaryState = {
-	hasError: boolean;
-	message: string;
-};
+interface errorBoundaryState {
+  hasError: boolean
+  message: string
+}
 
-export default ErrorBoundary;
+export default ErrorBoundary

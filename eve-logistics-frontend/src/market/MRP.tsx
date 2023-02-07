@@ -1,3 +1,3 @@
-export default function MRP() {
-	return <h2>MRP</h2>;
+export default function MRP (): JSX.Element {
+  return <h2>MRP</h2>
 }

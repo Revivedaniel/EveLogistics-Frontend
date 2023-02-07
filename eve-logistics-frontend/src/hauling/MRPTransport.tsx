@@ -1,3 +1,3 @@
-export default function MRPTransport() {
-	return <h2>MRP Transport</h2>;
+export default function MRPTransport (): JSX.Element {
+  return <h2>MRP Transport</h2>
 }
