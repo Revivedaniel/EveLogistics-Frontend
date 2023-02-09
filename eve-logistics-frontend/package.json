@@ -25,8 +25,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "webpack serve --config webpack/webpack.config.js --open",
-    "build": "react-scripts build",
+    "start": "webpack serve --config webpack/webpack.config.js --open --env env=dev",
+    "build": "webpack --config webpack/webpack.config.js --env env=prod",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -66,8 +66,12 @@
     "mini-css-extract-plugin": "^2.7.2",
     "ts-loader": "^9.4.2",
     "typescript": "^4.9.5",
+    "url-loader": "^4.1.1",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^4.11.1"
+    "webpack-dev-server": "^4.11.1",
+    "webpack-merge": "^5.8.0",
+    "workbox-webpack-plugin": "^6.5.4",
+    "webpack-pwa-manifest": "^4.3.0"
   }
 }
