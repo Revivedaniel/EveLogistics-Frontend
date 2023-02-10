@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const webpack = require('webpack')
 
 module.exports = {
+  mode: 'development',
   entry: path.resolve(__dirname, '../src/index.tsx'),
   resolve: {
     extensions: ['.ts', '.tsx', '.js']
