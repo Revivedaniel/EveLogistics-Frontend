@@ -27,10 +27,11 @@ export default function Login (): JSX.Element {
         <main className={css.main}>
             <h1>Eve Logistics</h1>
             <article>
-                <DisplayErrors errors={errors} />
                 <AuthForm
                     action={login}
-                />
+                    >
+                <DisplayErrors errors={errors} />
+                    </AuthForm>
           </article>
         </main>
         <aside className={css.aside}>

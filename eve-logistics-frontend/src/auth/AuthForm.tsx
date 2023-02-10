@@ -46,50 +46,62 @@ export default function AuthForm (props: AuthFormProps): JSX.Element {
   }
 
   return (
-      <form onSubmit={(e) => {
+    <form
+      onSubmit={(e) => {
         e.preventDefault()
         const form = e.currentTarget
         const email = form.email.value
         const password = form.password.value
         void props.action({ email, password })
-      }}>
-        <h2>Login to Eve Logistics</h2>
-        <TextField
+      }}
+    >
+      <h2>Login to Eve Logistics</h2>
+      <TextField
         error={emailError !== ''}
-          required
-          type="email"
-          label="Email"
-          name="email"
-          helperText={emailError}
-          onBlur={(e) => { validateEmail(e.target.value) }}
-          margin="normal"
-          sx={textFieldStyles}
-        />
-        <TextField
+        required
+        type="email"
+        label="Email"
+        name="email"
+        helperText={emailError}
+        onBlur={(e) => {
+          validateEmail(e.target.value)
+        }}
+        margin="normal"
+        sx={textFieldStyles}
+      />
+      <TextField
         error={passwordError !== ''}
         required
         label="Password"
         type="password"
         name="password"
         helperText={passwordError}
-        onBlur={(e) => { validatePassword(e.target.value) }}
+        onBlur={(e) => {
+          validatePassword(e.target.value)
+        }}
         margin="normal"
         sx={textFieldStyles}
-        />
+      />
 
-        <div style={{
+      <div
+        style={{
           display: 'flex',
           justifyContent: 'space-between'
-        }}>
-          <Button type="submit" sx={buttonStyles}>
-            Login
-          </Button>
-          <Button disabled variant="outlined" sx={buttonStyles}>Register</Button>
-        </div>
-      </form>
+        }}
+      >
+        <Button type="submit" sx={buttonStyles}>
+          Login
+        </Button>
+        <Button disabled variant="outlined" sx={buttonStyles}>
+          Register
+        </Button>
+        {props.children !== null ? props.children : null}
+      </div>
+    </form>
   )
 }
 
 interface AuthFormProps {
+  children?: React.ReactNode
   action: (credentials: UserCredentials) => Promise<void>
 }
